@@ -1,0 +1,104 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{polynom}
+
+\title{Logik und diskrete Mathematik, Übung 4}
+\author{Andreas Timmermann, Mat: 4994606, Alena Dudarenok, Mat: 4999780, Gruppe: 1}
+
+\begin{document}
+	\maketitle
+	\begin{flushleft}
+		\textbf{Aufgabe 1:}\\
+		geg: \\
+		Relation Turm $(T):$ $(a,b)T(c,d) \Leftrightarrow (a=c\vee b=d)\wedge |a-c|-|b-d|>0$\\
+		Relation Springer $(S):$ $(a,b)S(c,d) \Leftrightarrow |c-a|-|d-b|=2$\\
+		Relation Läufer $(L):$ $(a,b)L(c,d) \Leftrightarrow |c-a|=|d-b|\neq0$\\[1em]
+		\textbf{a)}\\
+		$M_T=\{(1,x),(x,1) : 2\leq x\leq 8\}$\\
+		$M_{T\circ T}=\{(x,y): 1\leq x\leq 8,1\leq y\leq 8\}$\\
+		$M_S=\{(2,3),(3,2)\}$\\
+		$M_{S\circ S}=\{(1,1),(4,4),(4,2),(2,4),(3,1),(1,3),(3,5),(5,3),(1,5),(5,1)\}$\\
+		$M_L=\{(x,x):1\leq x \leq 8\}$\\
+		$M_{L\circ L}=\{(x,y): 1\leq x \leq 8,1\leq y \leq 8: (x+y) \bmod{2} = 0\}$\\[1em]
+		\textbf{b)} Äquivalenz\\
+		$\mathbf{T\circ T}$:\\
+		\textbf{Reflexivität:} $aT\circ Ta\Rightarrow \{(a,a):1\leq a\leq 8\}\subseteq M_{T\circ T}$ \textbf{ (wahr)}\\
+		\textbf{Symmetrie:} $aT\circ Tb\Rightarrow bT\circ Ta.$ Da alle Elemente $(a,b)\in M_{T\circ T}$ mit $1\leq a\leq 8$ und $1\leq b\leq 8$ enthalten sind, sind auch die Elemente $(b,a)$ mit $1\leq a\leq 8$ und $1\leq b\leq 8$ auch in $M_{T\circ T}$ enthalten.  \textbf{ (wahr)}\\
+		\textbf{Transitivität:} $aT\circ Tb\wedge bT\circ Tc\Rightarrow aT\circ Tc$ NOCH ZU ZEIGEN!!! \textbf{ (wahr)}\\
+		$T\circ T$ ist eine Aquivalenzrelation.\\
+		Äquivalenzklassen: Es gibt nur eine Äquivalenzklasse. $(1,1)/T=T\circ T$\\[1em]
+		$\mathbf{S\circ S}$:\\
+		\textbf{Reflexivität:} $aS\circ Sa\Rightarrow aSa$. Gegenbeispiel: $(5,5)\notin S\circ S$  (nicht wahr)\\
+		$S\circ S$ ist keine Aquivalenzrelation.\\[1em]
+		$\mathbf{L\circ L}$:\\
+		\textbf{Reflexivität:} $aL\circ La\Rightarrow aL\circ La$. Nach Definition von $M_{L\circ L}$ gilt: $1\leq a\leq 8: (a+a)\bmod 2= 0\Rightarrow (a,a)\in M_{L\circ L}$ \textbf{(wahr)}\\
+		\textbf{Symmetrie:} $aL\circ Lb\Rightarrow bL\circ La$.\\ $aL\circ Lb\Rightarrow (a,b)\in M_{L\circ L}:((a+b)\bmod 2 = 0)\Rightarrow((b+a)\bmod 2= 0)\Rightarrow(b,a)\in M_{L\circ L} \Rightarrow bL\circ La$. \textbf{(wahr)}\\
+		\textbf{Transitivität:} $aL\circ Lb\wedge bL\circ Lc\Rightarrow aL\circ Lc$ \\
+		Bemerkung: $a,b$ gerade oder $a,b$ ungerade $\Rightarrow$ $(a+b)\bmod 2= 0$. wenn $a$ ungerade ist $\Rightarrow a=m*2+1\Rightarrow (a_1*2+1 + a_2*2 + 1) \bmod 2\equiv (2*(a_1 + a_2) + 2) = 0$, wenn m gerade.\\
+		Fall 1:\\
+		$a$ ist gerade.\\
+		$aL\circ Lb\Rightarrow$ $b$ ist gerade, wegen $(a+b)\bmod 2= 0$\\
+		$\Rightarrow c$ ist auch gerade, wegen $(b+c)\bmod 2= 0$\\
+		$\Rightarrow (a+c)\bmod 2 = 0$\\
+		$\Rightarrow aL\circ Lc$\\
+		Fall 2: analog zu Fall 1.\\
+		$L\circ L$ ist eine Aquivalenzrelation.\\
+		Äquivalenzklassen: Es gibt nur eine Äquivalenzklasse. $(1,1)/L=L\circ L$\\[1em]
+	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 2:}\\
+		$min({b,f,h,i}) = b$\\
+		$max({a,b,h,i}) = i$\\
+		$sup({acef}) = f$\\
+		$inf({f,h,j}) = e$\\
+		$inf({d,e,f,i}) = b$\\[1em]
+	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 3:}\\
+		geg:\\
+		$f(x,y) = x\times y$\\
+		$g(x,y) = |y-2\times x + 1|$\\
+		$h(x)=(x,x^2)$\\
+		$f,g: \mathbb{R^+}\times \mathbb{R^+}\rightarrow \mathbb{R^+}$\\
+		$h: \mathbb{R^+}\rightarrow\mathbb{R^+}\times \mathbb{R^+}$\\[1em]
+		zu zeigen:\\
+		Injektivität, Surjektivität und Bijektivität von ...\\
+		$f\circ h, g\circ h:\mathbb{R^+}\rightarrow\mathbb{R^+}$	\\
+		$h\circ f, h\circ g:\mathbb{R^+}\times\mathbb{R^+}\rightarrow\mathbb{R^+}\times\mathbb{R^+}$\\[1em]
+		$\underline{f\circ h}$\\
+		Für ein beliebeiges $x\in\mathbb{R^+}$.\\
+		$(f\circ h)(x)=f(h(x))=(x,x^2)=x\times x^2=x^3$\\
+		a) ist Injektiv, da jedem $x_1,x_2\in \mathbb{R}$ gilt, wenn  $x_1^3=x_2^3 \Rightarrow x_1 = x_2$\\
+		b) ist surjektiv,  da die Umkehrfunktion von $y=x^3,x=\sqrt[3]{x}$ ist.
+		c) ist bijektiv, da injektiv und surjektiv.\\[1em]
+
+		$\underline{g\circ h}$\\
+		Für ein beliebeiges $x\in\mathbb{R^+}$.\\
+		$(g\circ h)(x)=g(h(x))=g(x,x^2)=|x^2-2\times x+1|$\\
+		a) nicht injektiv,\\
+		Gegenbeispiel: $x_1=0,x_2=2\Rightarrow g(h(x_1))=g(h(0))=1, g(h(x_2))= g(h(2))=1$ aber $x_1\neq x_2$\\
+		b) ist surjektiv, der Scheitelpunkt von $g\circ h$ liegt auf der $x-Achse$ und die Funktion selbst nach oben offen. Damit ist der Wertebereich $\{0,\infty\}$.\\
+		Umgestellt ist die Funktion $y=(x-1)^2+1\Rightarrow \forall y\in\mathbb{R^+}\exists x\in\mathbb{R^+}$.\\[1em]
+
+		$\underline{h\circ f}$\\
+		Für ein beliebeiges $x,y\in\mathbb{R^+}$.\\
+		$(h\circ f)(x,y)=h(f(x,y))=h(x\times y)=(x\times y,(x\times y)^2)$\\
+		a) ist injektiv, weil $h(f(0,1))=(0,0), h(f(1,0))=(0,0)$ und $(0,1)\neq(1,0)$.\\
+		b) ist surjektiv. Da $f$ und $h$ surjektiv sind, ist auch $h\circ f$ auch surjektiv. NOCH ZU ZEIGEN!!!.\\
+		c) nicht bijektiv, wegen a)\\[1em]
+
+		$\underline{h\circ g}$\\
+		Für ein beliebeiges $x,y\in\mathbb{R^+}$.\\
+		$(h\circ g)(x,y)=h(g(x,y))=h(|y-2\times x+1|)=(|y-2\times x+1|,(|y-2\times x +1)^2)$\\
+		a) nicht injektiv, da $h(g(2,4))=(|4-2\times 2+1|,(|4-2\times 2 +1)^2)=(1,1)$ und $h(g(4,8))=(|8-2\times 4+1|,(|8-4\times 2 +1)^2)= (1,1)$. Aber $(2,4) \neq (4,8)$.\\
+		b) ist surjektiv, da $h$ bijektiv und $g$ surjektiv ist.\\
+		b) nicht bijektiv wegen a)\\[1em]
+		
+	\end{flushleft}
+\end{document}

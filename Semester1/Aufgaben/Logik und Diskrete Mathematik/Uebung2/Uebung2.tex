@@ -1,0 +1,199 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{polynom}
+
+\title{Logik und diskrete Mathematik, Übung 2}
+\author{Andreas Timmermann, Mat: 4994606, Gruppe: 1}
+
+\begin{document}
+	\maketitle
+	\begin{flushleft}
+		\textbf{Aufgabe 1:}\\
+		$(x\wedge\neg y\vee\neg z)\Rightarrow(x\wedge y)$\\
+		$\equiv ((x\wedge(\neg y))\vee(\neg z))\Rightarrow(x\wedge y)$ \\
+		$\equiv \neg((x\wedge(\neg y))\vee(\neg z))\vee(x\wedge y) \equiv (\neg(x\wedge(\neg y))\wedge\neg(\neg z))\vee(x\wedge y)$\\			$\equiv (\neg x \wedge \neg y \wedge z)\vee(x\wedge y)$ (DNF)\\[1em]
+		Verknüpfungstabelle: \\
+		\begin{tabular}{|c|c|c|c|}
+			$x$ & $y$ & $z$ & $(\neg x \wedge \neg y \wedge z)\vee(x\wedge y)$ \\
+			0 & 0 & 0 & 0 \\
+			0 & 0 & 1 & 1 \\
+			0 & 1 & 0 & 0 \\
+			0 & 1 & 1 & 0 \\
+			1 & 0 & 0 & 0 \\
+			1 & 0 & 1 & 0 \\
+			1 & 1 & 0 & 1 \\
+			1 & 1 & 1 & 1 \\
+		 \end{tabular}\\[1em]
+		 $(x\wedge\neg y\vee\neg z)\Rightarrow(x\wedge y)$\\
+		 $\equiv (x\vee y\vee z)\wedge (x\vee \neg y\vee z)\wedge (x\vee \neg y\vee \neg z)\wedge (\neg x\vee y\vee z)\wedge (\neg x\vee y\vee \neg z)$\\
+		 $\equiv (x\vee y\vee z)\wedge (x\vee \neg y)\wedge (\neg x\vee y)$ (KNF)\\
+ 	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 2:}\\
+		\textbf{(a)} 
+		$(p\Rightarrow(q\vee r))\wedge \neg q\wedge\neg r $\\
+		$\equiv ((\neg p)\vee (q\vee r))\wedge \neg q\wedge\neg $\\
+		$r\equiv (\neg p\vee  q\vee r)\wedge (\neg q\wedge\neg r)$\\
+		$\equiv  (\neg p\wedge (\neg q\wedge\neg r))\vee (q\wedge (\neg q\wedge\neg r))\vee (r\wedge (\neg q\wedge\neg r))$\\
+		$\equiv (\neg p\wedge \neg q\wedge\neg r)$ (DNF und KNF)\\[1em]
+		Verknüpfungstabelle: \\
+		\begin{tabular}{|c|c|c|c|c|c|}
+			$p$ & $q$ & $r$ & $(p\Rightarrow(q\vee r))\wedge \neg q\wedge\neg r$ & $(\neg p\wedge \neg q\wedge\neg r)$\\
+			0 & 0 & 0 & 1 & 1 \\
+			0 & 0 & 1 & 0 & 0 \\
+			0 & 1 & 0 & 0 & 0 \\
+			0 & 1 & 1 & 0 & 0 \\
+			1 & 0 & 0 & 0 & 0 \\
+			1 & 0 & 1 & 0 & 0 \\
+			1 & 1 & 0 & 0 & 0 \\
+			1 & 1 & 1 & 0 & 0 \\
+		 \end{tabular}\\[1em]
+		 \textbf{(b)} 
+		 $\neg (r\Leftrightarrow q) \Leftrightarrow r$\\
+		 $\equiv \neg((p\wedge q)\vee(\neg p\wedge \neg q))\Leftrightarrow r$\\
+		 $\equiv (\neg((p\wedge q)\vee(\neg p\wedge \neg q))\wedge r)\vee(((p\wedge q)\vee(\neg p\wedge \neg q))\wedge\neg r)$\\
+		 $\equiv ((\neg(p\wedge q)\wedge\neg(\neg p\wedge\neg q))\wedge r)\vee((p\wedge q\wedge\neg r)\vee(\neg p\wedge\neg q\wedge\neg r))$\\
+		 $\equiv ((\neg p\vee \neg q)\wedge(p\vee q)\wedge r)\vee ((p\wedge q\wedge\neg r)\vee(\neg p\wedge\neg q\wedge\neg r))$\\
+		 $\equiv (((\neg p\wedge q)\vee(\neg q\wedge p))\wedge r) \vee ((p\wedge q\wedge\neg r)\vee(\neg p\wedge\neg q\wedge\neg r))$\\
+		 $\equiv (\neg p\wedge q\wedge r)\vee(p\wedge\neg q\wedge r)\vee(p\wedge q\wedge\neg r)\vee(\neg p\wedge\neg q\wedge\neg r)$ (DNF)\\[1em]
+		 \textbf{(c)} 
+		 $\neg r \Rightarrow (((p\vee q) \Rightarrow r) \Rightarrow \neg q)$\\
+		 $\equiv r \vee (((p\vee q) \Rightarrow r) \Rightarrow \neg q)$\\
+		 $\equiv r \vee ((\neg(p\vee q) \vee r) \Rightarrow \neg q)$\\
+		 $\equiv r \vee (\neg(\neg(p\vee q) \vee r) \vee \neg q)$\\
+		 $\equiv r \vee (((p\vee q) \wedge \neg r) \vee \neg q)$\\
+		 $\equiv r \vee (((p \wedge\neg r)\vee (q\wedge\neg r)) \vee \neg q)$\\
+		 $\equiv r \vee \neg q \vee (p \wedge\neg r)\vee (q\wedge\neg r)$\\
+		 $\equiv r \vee \neg q \vee p \vee q$\\
+		 $\equiv 1 $ (Tautologie)\\
+		 
+ 	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 3:}\\
+		\textbf{a)}\\
+		Zu zeigen ist, dass die Signatur ${\oplus}$ unvollständig ist.\\[1em]
+		Wir zeigen, dass wir mit $\oplus$ weder die $\neg$ noch die $\wedge$ noch die $\vee$ bilden können.\\
+		$a,b\in A$\\[1em]	
+		\begin{tabular}{|c|c|c|c|c|}
+			$a$ & $b$ & $a\oplus b$ & $a\oplus a$ & $a\oplus a\oplus b$\\
+			0 & 0 & 0 & 0 & 0\\
+			0 & 1 & 1 & 0 & 1\\
+			1 & 0 & 1 & 0 & 0\\
+			1 & 1 & 0 & 0 & 1\\
+		 \end{tabular}\\[1em]
+		 Fall 1: Eine gerade Anzahl von $a$'s und eine ungerade Anzahl von $b$'s ergibt immer das Ergebnis $b$.\\
+		 Fall 2: Eine gerade Anzahl von $a$'s und eine gerade Anzahl von $b$'s ergibt eine $0$.\\
+		 Fall 3: Eine ungerade Anzahl von $a$'s und eine ungerade Anzahl von $b$'s ergibt ein $a\oplus b$.\\
+		\textbf{b)}\\
+		gegeben: Die Signatur A $\{\oplus,\neg\}$ ist unvollständig.\\
+		zu zeigen: Die Signatur B $\{\oplus,\neg,\Leftrightarrow,true\}$ ist unvollständig.\\[1em]
+		Eine Tabelle zu Veranschaulichung. Erklärung kommt unten.\\[1em]
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+			$a$ & $b$ & $a\oplus b$ & $\neg(a\oplus b)$ & $a\Leftrightarrow b$ & $true$ & $true \oplus a$ & $\neg a$\\
+			0 & 0 & 0 & 1 & 1 & 1 & 1 & 1\\
+			0 & 1 & 1 & 0 & 0 & 1 & 1 & 1\\
+			1 & 0 & 1 & 0 & 0 & 1 & 0 & 0\\
+			1 & 1 & 0 & 1 & 1 & 1 & 0 & 0\\
+		 \end{tabular}\\[1em]
+		Nehmen wir die unvollständige Signatur A $\{ \oplus,\neg \}$ und fügen das '$\Leftrightarrow$' ein. So wird die die Signatur A zu $\{ \oplus,\neg,\Leftrightarrow \}$ erweitert. An der Tabelle können wir leicht erkennen, dass $a\Leftrightarrow b$ durch $\neg(a\oplus b)$ ersetzt werden kann. Das bedeutet, dass beide Signaturen gleich sind. Das Selbe gilt, wenn wir die anderen beiden Operatoren hinzunehmen, wie man an der Tabelle erkennen kann. Die neuen Operatoren sind einfach nur Abwandlungen der Operatoren aus A.\\  
+ 	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 4:}\\
+		Zu zeigen: $t = (x\vee \neg z)\oplus (x \wedge y)$ mit der Signatur $\{\neg,\wedge\}$.\\ [1em]
+		$t\equiv (\neg(x\vee \neg z)\wedge(x\wedge y))\vee((x\vee\neg z)\wedge\neg(x\wedge y))$\\
+		$\equiv \underbrace{(\neg x\wedge z\wedge x\wedge y)}_{0}\vee((x\vee\neg z)\wedge(\neg x\vee\neg y))$\\
+		$\equiv (x\vee \neg z)\wedge(\neg x\vee \neg y)$\\
+		$\equiv (x\wedge \neg x)\vee(x\wedge \neg y)\vee(\neg z \wedge\neg x)\vee(\neg z\wedge \neg y)$\\
+		$\equiv (x\wedge\neg y)\vee(\neg z\wedge\neg x)\vee(\neg z\wedge\neg y)$\\
+		$\equiv \neg(\neg((x\wedge\neg y)\vee(\neg z\wedge \neg x)\vee(\neg z\wedge\neg y)))$\\
+		$\underline{\equiv \neg(\neg(x\wedge\neg y)\wedge\neg(\neg z\wedge\neg x)\wedge\neg(\neg\wedge\neg y))}$\\
+ 	\end{flushleft}
+ 	\begin{flushleft}
+		\textbf{Aufgabe 5:}\\
+		Wenn für 2 Tupel $a,b \in B^n$ einer Menge mit der Funktion $f$ gilt $\underbrace{(a_1,\dots,a_n) \leq (b_1,\dots,b_n)}_{A}\Rightarrow \underbrace{f(a_1,\dots,a_n)\leq f(b_1,\dots,b_n)}_{B}$ mit $b_i\leq c_i$ mit $1\leq i\leq n$\\
+		dann ist f eine monoton boolesche Funktion.\\[1em]
+		\textbf{a)}\\
+		zu zeigen: sind '$\vee$','$\Rightarrow$' und '$\Leftrightarrow$' monoton?\\[1em]
+		\textbf{'$\vee$')}\\
+		Def: $a=(a_1,a_2), f(a) = a_1\vee a_2, \underbrace{(a_1,a_2)\leq(b_1\vee b_2)}_{A}\Rightarrow\underbrace{(a_1\vee a_2)\leq(b_1\vee b_2)}_{B}$\\
+
+		\begin{tabular}{|c|c|c|}
+			$a_1$ & $a_2$ & $a_1\vee a_2$\\
+			0 & 0 & 0 \\
+			0 & 1 & 1 \\
+			1 & 0 & 1 \\
+			1 & 1 & 1 \\
+		 \end{tabular}\\[1em]
+		 Kontraposition: $\neg B \Rightarrow \neg A$\\
+		 (1) $\neg B$ ist $true$, wenn $B=false$.\\
+		 (2) $B=false$, wenn $(b_1\vee b_2) = 0$ und $(a_1\vee a_2) = 1$.\\
+		 (3) $(b_1\vee b_2)=0$, wenn $b_1 = 0$ und $b_2 = 0$. $(a_1 \vee a_2) = 1$, wenn $a_1 = 1$ oder $a_2=1$.\\
+		 (4) Aus $\neg B \Rightarrow \neg((a_1,a_2)\leq(0,0))$\\
+		 (5) Da aber $a_1=1$ oder $a_2=1$ ist, ist auch $a_1\nleq b_1$ oder $a_2\nleq b_2$.\\
+		 (6) $\Rightarrow A=false \Rightarrow \neg A=true$.  \\
+		 (7) da $\neg B \Rightarrow \neg A$ wahr ist, ist auch $A\Rightarrow B$ auch wahr. '$\vee$' ist monoton.\\ [1em]
+		
+		\textbf{'$\Rightarrow$')}\\
+		\begin{tabular}{|c|c|c|}
+			$a_1$ & $a_2$ & $a_1\Rightarrow a_2$\\
+			0 & 0 & 1 \\
+			0 & 1 & 1 \\
+			1 & 0 & 0 \\
+			1 & 1 & 1 \\
+		 \end{tabular}\\[1em]
+		 Gegenbeispiel:\\
+		 (1) $a=(0,0)$ und $b=(1,0)$\\
+		 (2) $(0,0)\leq(1,0)\Rightarrow(1\leq 0)$ !!!! Das ist definitiv falsch.\\
+		 (3)  '$\Rightarrow$' ist nicht monoton.\\[1em]
+
+		\textbf{'$\Leftrightarrow$')}\\
+		\begin{tabular}{|c|c|c|}
+			$a_1$ & $a_2$ & $a_1\Rightarrow a_2$\\
+			0 & 0 & 1 \\
+			0 & 1 & 0 \\
+			1 & 0 & 0 \\
+			1 & 1 & 1 \\
+		 \end{tabular}\\[1em]
+		 Gegenbeispiel:\\
+		 (1) $a=(0,0)$ und $b=(1,0)$\\
+		 (2) $(0,0)\leq(1,0)\Rightarrow(1\leq 0)$ !!!! Das ist definitiv falsch.\\
+		 (3)  '$\Leftrightarrow$' ist nicht monoton.\\[1em]
+		\textbf{b)}\\
+		$\underbrace{(a_1,\dots,a_n)\leq(b_1,\dots,b_n)}_{A}\Rightarrow \underbrace{f(a_1,\dots,a_n)\leq f(b_1,\dots,b_2)}_{B}, \forall i$  $a_i\leq b_i$\\[1em]
+		\textbf{Paritätsfunktion:}\\
+		zu zeigen: Paritätsfunktion ist monoton.\\
+		Gegenbeispiel:\\
+		Sei $b$ eine Belegung mit einer geraden Anzahl vpn $1$. Nun sagen wir $a=b$ und nehmen aus $a$ eine $1$ weg. Dann hat $a$ eine ungerade Anzahl von 1.\\
+		Damit wäre $A$ erfüllt. $f(a)=1$, da $a$ ungerade ist.  und $f(b)=0$, da $b$ gerade ist. Daraus folgt, dass $f(a) \nleq f(b)$. Und deswegen ist $B$ nicht erfüllt.\\
+		Somit ist die Paritätsfunktion nicht monoton.\\[1em]
+
+		\textbf{Majoritätsfunktion:}\\
+		zu zeigen: Majoritätsfunktion ist monoton.\\
+		Wiedermal eine Kontraposition $\neg A\Rightarrow\neg B$.\\
+		(1) $\neg B=true$ wenn $B=false$.
+		(2) $B=false$ wenn $f(b)=0$ und $f(a)=1$.\\
+		(3) $f(a)=1 \Rightarrow$ die Anzahl der 1 in einem Tupel $(a_1,\dots,a_n)$ ist mindestens $\frac{n}{2}$.\\
+		(4) $f(b)=0 \Rightarrow$ Die Anzahl der 1 in einem Tupel $(b_1,\dots,b_n)$ ist kleiner $\frac{n}{2}$.\\
+		(5) $\Rightarrow \exists i : a_i=1$ und $b_i=0$. Daraus folgt, dass $A=false \equiv \neg A = true$\\
+		(6) $\Rightarrow (\neg B \Rightarrow \neg A) \equiv (A\Rightarrow B)$.\\
+		(7) Die Majoritätsfunktion ist monoton.\\[1em]
+		
+		\textbf{Schwellenfunktionfunktion:}\\
+		zu zeigen: Schwellenfunktionfunktion ist monoton.\\
+		Die Schwellenfunktion ist eine abgewandelte Majoritätsfunktion. Bei der Majoritätsfunktion ist $k=\frac{n}{2}$. Wenn $k$ größer oder kleiner als $\frac{n}{2}$ wäre. könnte man $n=k*2$ anpassen.\\
+		Die Schwellenfunktionfunktion ist monoton.\\[1em]
+
+		\textbf{c)}\\
+		gegeben: $f=t_1\vee t_2$, $a=(a_1,\dots,a_2),b=(b_2,dots,b_n)$.\\
+		
+ 	\end{flushleft}
+ 	
+ 	Ich hab es zeitlich leider nicht geschafft alles in Latex reinzuschreiben. Schade.
+ 	
+\end{document}

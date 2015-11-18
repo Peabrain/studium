@@ -1,0 +1,118 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{polynom}
+
+\title{Logik und diskrete Mathematik, Übung 3}
+\author{Andreas Timmermann, Mat: 4994606, Alena Dudarenok, Mat: 4999780, Gruppe: 1}
+
+\begin{document}
+	\maketitle
+	\begin{flushleft}
+		\textbf{Aufgabe 1:}\\
+		geg: \\
+		$f:\Re\rightarrow\Re$, $g=\lim_{x\rightarrow a}f(x)$, falls für jedes $\epsilon>0$ existiert ein $\delta>0$ mit $0<\mid x-a\mid<\delta \Leftrightarrow \mid f(x)-g\mid<\epsilon$\\[1em]
+		Prädikatenform:\\
+		$g=\lim_{x\rightarrow a}f(x)\Leftrightarrow \forall\epsilon\exists\delta$ : $0<\mid x-a\mid<\delta \Rightarrow \mid f(x)-g\mid<\epsilon$\\
+		Negation:\\
+		$\neg(g=\lim_{x\rightarrow a}f(x)\Leftrightarrow \forall\epsilon\exists\delta $ : $0<\mid x-a\mid<\delta \Rightarrow \mid f(x)-g\mid<\epsilon)$\\
+		$\equiv (g\neq\lim_{x\rightarrow a}f(x)\Leftrightarrow \neg(\forall\epsilon\exists\delta : (\neg(0<\mid x-a\mid<\delta) \vee (\mid f(x)-g\mid<\epsilon))$\\
+		$\equiv (g\neq\lim_{x\rightarrow a}f(x)\Leftrightarrow \exists\epsilon\forall\delta:((0<\mid x-a\mid<\delta) \wedge \neg(\mid f(x)-g\mid<\epsilon))$\\
+		$\equiv g\neq\lim_{x\rightarrow a}f(x)\Leftrightarrow \exists\epsilon\forall\delta:((0<\mid x-a\mid<\delta) \wedge (\mid f(x)-g\mid\geq\epsilon))$\\
+		$\equiv g\neq\lim_{x\rightarrow a}f(x)\Leftrightarrow \exists\epsilon\forall\delta:((x-a<\delta) \wedge ((-(x-a))<\delta)  \wedge ((f(x)-g)\geq\epsilon \vee ((-(f(x)-g))\geq\epsilon)))$\\
+	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 2:}\\
+		\textbf{a)}\\
+		zu zeigen:$(A\oplus B)\oplus B = A$ \\[1em]
+		$(A\oplus B)\oplus B \equiv A\oplus (B\oplus B) \equiv A\oplus (0)\equiv A$\\[1em]
+		oder:\\
+		$y\in ((A \oplus B)\oplus B)$\\
+		$\equiv (y\in(A\oplus B)\wedge y\notin B) \vee(y\notin(A\oplus B)\wedge y\in B))$\\
+		$\equiv (((y\in A \wedge y\notin B)\vee(y\notin A\wedge y\in B))\wedge y\notin B)\vee(((y\in A\wedge y\in B)\vee(y\notin A\wedge y\notin B)\wedge y\in B)$\\
+		$\equiv ((y\in A\wedge y\notin B\wedge y\notin B)\vee(y\notin A\wedge y\in B\wedge y\notin B))\vee((y\in A\wedge y\in B \wedge y\in B)\vee(y\notin A\wedge y\notin B\wedge y\in B))$\\
+		$\equiv ((y\in A\wedge y\notin B)\vee 0)\vee((y\in A \wedge y\in B)\vee 0)\equiv (y\in A\wedge y\notin B)\vee(y\in A\wedge y\in B)$\\
+		$\equiv y\in A\wedge(y\notin B\vee y\in B)$\\
+		$\equiv y\in A\wedge 1\equiv y\in A$\\[1em]
+		\textbf{b)}\\
+		zu zeigen: $A\oplus B = A$\\[1em]
+		$(y\in (A\oplus B) \equiv y\in A)$\\
+		Angenommen es existiert ein Element $y \in B$. Das bedeutet laut Antivalenz $y \in B \wedge y\notin A$. $\Rightarrow$ Es existiert also ein Element, welchen in der Menge $A\oplus B$ enthalten ist, aber nicht Element von $A$ ist. Somit muss $B = \emptyset$ sein.\\[1em]
+		\textbf{c)}\\
+		zu zeigen: $(A\cup B)\oplus(C\cup D)\subseteq(A\cup C)\oplus(B\cup D)$, wahr oder falsch.\\[1em]
+		Angenommen $y\in (A\cap B)$:\\
+		$\Rightarrow y\in A \wedge y\in B$\\
+		$\Rightarrow y\notin C \wedge y \notin D$\\
+		$\Rightarrow (A\cup B)\oplus(C\cup D)$ ist wahr.\\
+		weiterhin:\\
+		wegen $y\in A \wedge y\in B$\\
+		$\Rightarrow y\in (A\cup C) \wedge y\in(B\cup D)$\\
+		$\Rightarrow y\notin ((A\cup C)\oplus(B\cup D))$\\
+		Somit ist die Aussage $(A\cup B)\oplus(C\cup D)\subseteq(A\cup C)\oplus(B\cup D)$ falsch.
+	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 3:}\\
+		geg: $A_1=\{0,i,2\cdot i,3\cdot i, \dots\}, B_1=\{i,i+1,i+2,i+3, \dots\}$\\
+		ges: $\underset{i\in \mathbb{N}\backslash \{0\}}{\bigcup} A_i$, $\bigcup^{n}_{i=1} B_i$, $\underset{i\in \mathbb{N}\backslash \{0\}}{\bigcap} A_i$ und $\bigcap^{n}_{i=1} B_i$. \\[1em]
+		$\underset{i\in \mathbb{N}\backslash \{0\}}{\bigcup} A_i = A_1\cup A_2\cup A_3\cup\dots=\{0,1,2,3,\dots\}\cup\{0,2,4,6,\dots\}\cup\{0,3,6,9,\dots\}\cup\dots$\\
+		$\underline{\underset{i\in \mathbb{N}\backslash \{0\}}{\bigcup} A_i = \mathbb{N}}$\\[1em]
+		$\bigcup^{n}_{i=1} B_i = \{1,2,3,4,\dots\}\cup\{2,3,4,5,\dots\}\cup\{3,4,5,6,\dots\}\cup\dots$\\
+		$\underline{\bigcup^{n}_{i=1} B_i = \mathbb{N}\backslash \{0\}}$\\[1em]
+		$\underset{i\in \mathbb{N}\backslash \{0\}}{\bigcap} A_i = A_1\cap A_2\cap A_3\cap\dots=\{0,1,2,3,\dots\}\cap\{0,2,4,6,\dots\}\cap\{0,3,6,9,\dots\}\cap\dots$\\
+		$\underline{\underset{i\in \mathbb{N}\backslash \{0\}}{\bigcap} A_i = \{0\}}$\\[1em]
+		$\bigcap^{n}_{i=1} B_i = \{1,2,3,4,\dots\}\cap\{2,3,4,5,\dots\}\cap\{3,4,5,6,\dots\}\cap\dots$\\
+		$\underline{\bigcap^{n}_{i=1} B_i = B_n}$\\[1em]
+	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 4:}\\
+		\textbf{a)}\\
+		geg: $\leq$ in $\mathbb{N}$\\
+		Reflexivität: $R_r = R\cup \{(a,a):a \in \mathbb{N}\}$\\
+		Symmetrie: $R_s=\{(a,b)\in\mathbb{N}^2:(b,a)\in\mathbb{N}^2\}$\\
+		Transitivität: die $\leq$ ist eine Ordnungsrelation und somit auch transitiv.\\[1em]
+		\textbf{b)}\\
+		geg: $R$ in $\mathbb{R}$ mit $xRy$ falls $y=x+1$\\[1em]
+		Reflexivität: $R_r=\{(x,x):x\in R\}$\\
+		Symmetrie: $R_{s} = \{(x,y):(y,x)\in R\}$\\
+		Transitivität: $R_{t} = \{(y-1,x):(x,y)\in R\}$\\[1em]
+		\textbf{c)}\\
+		geg: $R$ in $\mathbb{R}$ mit $xRy$ falls $|x-y|<0.1$\\[1em]
+		Refl: muss nicht erweitert werden, dass diese Relation schon alle $xRx, |x-x|=0<0.1$ enthält.\\
+		Sym: muss auch nicht erweitert werden, da es durch $|\dots|$ auch schon enthalten ist.\\
+		Trans: $R_{rst}=R_{rs}\cup \{(-x,-y):(x,y)\in R\}$\\[1em]
+		
+	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 5:}\\
+		\textbf{a)}\\
+		\textbf{Äquivalenzrelation:}\\
+		geg: $x,y\in \mathbb{R}$, $xRy \Leftrightarrow \cos(x) = \cos(y)$\\[1em]
+		Refl: $xRx, \cos(x) = \cos(x)$ ist gegeben.\\
+		Sym: $xRy\Leftrightarrow yRx$, $\cos(x)=\cos(y)\Leftrightarrow \cos(y)=\cos(x)$ ist gegeben.\\
+		Trans: $xRy \wedge yRz\Rightarrow xRz, \cos(x)=\cos(y) \wedge \cos(y)=\cos(z)\Rightarrow \cos(x)=\cos(z)$ ist auch schon durch die Transitivität gegeben.\\
+		ist Äquivalent.\\[1em]
+		\textbf{Äquivalenzklassen:}\\
+		$x\in\mathbb{R}, x/R=\{x(+/-)2\cdot \pi\cdot i:i\in \mathbb{N}\}$\\	[1em]
+		\textbf{b)}\\
+		geg: $x,y\in\mathbb{R}$, $xRy\Leftrightarrow (x$ und $y$ $\in\mathbb{R^+})$ $\oplus$ $(x$ und $y$ $\in\mathbb{R^-})$ $\oplus$ $(x$ und $y$ $\in\{0\})$\\ [1em]
+		 Refl: $xRx$, $x\in\mathbb{R^+}\oplus x\in\mathbb{R^-}\oplus x\in\{0\}$. ist gegeben.\\
+		Sym: $xRy\Rightarrow yRx$\\
+		$x$ und $y$ $\in\mathbb{R^+}\Rightarrow y$ und $x$ $\in \mathbb{R^+}$\\
+		$x$ und $y$ $\in\mathbb{R^-}\Rightarrow y$ und $x$ $\in \mathbb{R^-}$\\
+		$x$ und $y$ $\in\{0\}\Rightarrow y$ und $x$ $\in \{0\}$ ist auch alles gegeben.\\
+		Trans: $(xRy\wedge yRz)\Rightarrow xRz$\\
+		Wenn $xRy$ wahr ist, dann ist $x$ und $y$ in einer der Mengen $\{\mathbb{R^+},\mathbb{R^-},\{0\}\}$\\
+		Und wenn $yRz$ war ist, so ist auch $y$ und $z$ in einer der Mengen $\{\mathbb{R^+},\mathbb{R^-},\{0\}\}$\\
+		Da $y$ in der selben Menge, wie $x$ ist und auch in der selben Menge, wie $z$, so ist auch $x$ in der selben Menge wie $z$. Also ist auch die Transitivität gegeben.\\[1em]
+		\textbf{Äquivalenzklassen:}\\
+		$x\in\mathbb{R}$\\
+		$x_{+}/R=\{y\in\mathbb{R}:y>0\}$\\
+		$x_{-}/R=\{y\in\mathbb{R}:y<0\}$\\
+		$0/R=\{0\}$\\
+	\end{flushleft}
+\end{document}

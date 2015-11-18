@@ -1,0 +1,108 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{polynom}
+
+\title{Logik und diskrete Mathematik\\Gruppe 3 (Benjamin Kaiser)\\ Übung 1}
+\author{Andreas Timmermann (Mat: 4994606), Alena Dudarenok (Mat: 4999780)}
+
+\begin{document}
+	\maketitle
+	\begin{flushleft}
+		\textbf{Aufgabe 5:}\\[1em]
+		Verknüpfungstabelle: \\
+		\begin{tabular}{|c|c|c|c|}
+			$x$ & $y$ & $z$ & $a$ \\
+			0 & 0 & 0 & 0 \\
+			0 & 0 & 1 & 1 \\
+			0 & 1 & 0 & 1 \\
+			0 & 1 & 1 & 0 \\
+			1 & 0 & 0 & 1 \\
+			1 & 0 & 1 & 0 \\
+			1 & 1 & 0 & 0 \\
+			1 & 1 & 1 & 1 \\
+		 \end{tabular}\\[1em]
+		 Boolesche Funktion: \\
+<<<<<<< HEAD
+		 $a = (x\vee y\vee z)\wedge (x\vee \neg y\vee \neg z)\wedge (\neg x\vee y\vee \neg z) \wedge (\neg x\vee \neg y\vee z)$\\
+		 $\equiv \neg(\neg((x\vee y\vee z)\wedge (x\vee \neg y\vee \neg z)\wedge (\neg x\vee y\vee \neg z) \wedge (\neg x\vee \neg y\vee z)))$\\
+		 $\equiv \neg(\neg(x\vee y\vee z)\vee \neg(x\vee \neg y\vee \neg z)\vee \neg(\neg x\vee y\vee \neg z) \vee \neg(\neg x\vee \neg y\vee z))$\\
+=======
+		 $a = (x\vee y\vee \neg z)\wedge (x\vee \neg y\vee z)\wedge (\neg x\vee y\vee z) \wedge (\neg x\vee \neg y\vee \neg z)$\\
+		 $ \equiv \neg(\neg((x\vee y\vee \neg z)\wedge (x\vee \neg y\vee z)\wedge (\neg x\vee y\vee z) \wedge (\neg x\vee \neg y\vee \neg z)))$\\
+		 $ \equiv \neg((\neg(x\vee y\vee \neg z)\vee \neg(x\vee \neg y\vee z)\vee \neg(\neg x\vee y\vee z) \vee \neg(\neg x\vee \neg y\vee \neg z)))$\\
+>>>>>>> 8f55c741cae752669eef3a11fdec51b6bc940792
+ 	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 6:}\\[1em]
+		$\neg(p\vee(\neg p\wedge q)) \equiv (\neg p \wedge \neg(\neg p\wedge q)) \equiv (\neg p \wedge (p\vee \neg q)) \equiv (\neg p \wedge p) \vee (\neg p \wedge \neg q) \equiv 0 \vee (\neg p \wedge \neg q) \equiv \underline{\underline{\neg p \wedge \neg q}}$ \\[1em]
+		\begin{tabular}{|c|c|c|c|c|c|}
+			$p$ & $q$ & $\neg p$ & $\neg q$ & $\neg(p\vee(\neg p\wedge q))$ & $\neg p \wedge \neg q$ \\
+			0 & 0 & 1 & 1 & 1 & 1 \\
+			0 & 1 & 1 & 0 & 1 & 1 \\
+			1 & 0 & 0 & 1 & 0 & 0 \\
+			1 & 1 & 0 & 0 & 0 & 0 \\
+		 \end{tabular}
+	\begin{center}
+	$\Box$
+	\end{center}
+ 	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 7:}\\[1em]
+		Ich definiere: \\
+		$a = (p \Leftrightarrow r)$ \\
+		$b = ((p \Rightarrow q) \wedge (q \Rightarrow r))$ \\
+		$c = (p \Rightarrow q)$ \\
+		$d = (q \Rightarrow r)$ \\
+		$e = (b \Rightarrow a)$ \\
+		$f = (p \Rightarrow r)$ \\
+		$g = (b \Rightarrow f)$ \\
+		$h = (c \Rightarrow r)$ \\
+		$i = (p \Rightarrow d)$ \\
+		$j = (h \Rightarrow i)$ \\
+		$k = (c \Rightarrow q)$ \\
+		$l = (k \Rightarrow p)$ \\[1em]
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+			$p$ & $q$ & $r$ & $a$ & $b$ & $c$ & $ d$ & $e$ & $f$ & $g$ & $h$ & $i$ & $j$ & $k$ & $l$ \\
+			0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 1 & 0 & 1 \\
+			0 & 0 & 1 & 0 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 0 & 1 \\
+			0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 0 \\
+			0 & 1 & 1 & 0 & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 \\
+			1 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+			1 & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+			1 & 1 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 0 & 1 & 1 & 1 \\
+			1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+		 \end{tabular}\\[1em]
+		 $((p \Rightarrow q) \wedge (q \Rightarrow r) \Rightarrow (p \Leftrightarrow r)$ ist keine Tautologie.\\
+		 $((p \Rightarrow q) \wedge (q \Rightarrow r) \Rightarrow (p \Rightarrow r)$ ist eine Tautologie. \\
+		 $((p \Rightarrow q) \Rightarrow r) \Rightarrow (p \Rightarrow (q \Rightarrow r))$ ist eine Tautologie. \\
+		 $((p \Rightarrow q) \Rightarrow q) \Rightarrow p$ ist keine Tautologie. \\[1em]
+ 	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 8:}\\[1em]
+		Ich definiere: \\
+		$d = a\oplus (b \oplus c)$\\
+		$e = (a\oplus b) \oplus c$\\
+		$f = a\downarrow (b \downarrow c)$\\
+		$g = (a\downarrow b) \downarrow c$\\[1em]
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+			$a$ & $b$ & $c$ & $a\oplus b$ & $b\oplus a$ & $a\downarrow b$ & $b\downarrow a$ & $b\oplus c$ & $b\downarrow a$ & $d$ & $e$ & $f$ & $g$ \\
+			0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\
+			0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 0 \\
+			0 & 1 & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 1 & 1 & 1 & 1 \\
+			0 & 1 & 1 & 1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \\
+			1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 1 \\
+			1 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+			1 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 \\
+			1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 \\
+		 \end{tabular}\\[1em]
+		$a\oplus b = b\oplus a$ (Kommutativ)\\
+		$a\downarrow b = b\downarrow a$ (Kommutativ)\\
+		$a\oplus (b \oplus c) = (a\oplus b) \oplus c$ (Assoziativ)\\
+		$a\downarrow (b \downarrow c) \neq (a\downarrow b) \downarrow c$ (nicht Assoziativ)\\
+ 	\end{flushleft}
+\end{document}

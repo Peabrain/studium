@@ -21,9 +21,26 @@
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 3:}\\		
+	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 4:}\\		
+	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 5:}\\		
+		zu zeigen: $\forall a,b\in \mathbb{Z}: \neg(3|a) \vee \neg(3|b) \Rightarrow \neg(3|(a+b)) \vee \neg(3|(a-b))$\\ 
+		Kontraposition:\\
+		$\forall a,b\in \mathbb{Z}: 3|(a+b) \wedge 3|(a-b) \Rightarrow 3|a \wedge 3|b$\\[1em]
+		Voraussetzung:\\
+		$a = 3\times m_a + r_a$. Nach Definition $3|a$, genau dann wenn $r_a = 0$.\\ 
+		$b = 3\times m_b + r_b$. Nach Definition $3|b$, genau dann wenn $r_b = 0$.\\[1em]
+		Wir setzen nun ein ohne zu wissen, wie groß $r_a,r_b$ sind.\\
+		$3|(3\times m_a + r_a + 3\times m_b + r_b) \wedge 3|(3\times m_a + r_a - 3\times m_b - r_b)$\\
+		$\equiv 3|(3\times (m_a + m_b) + (r_a + r_b)) \wedge 3|(3\times (m_a - m_b) + (r_a - r_b))$\\
+		Da wir wissen, dass $3|(3\times (m_a + m_b))$ und $3|(3\times (m_a - m_b))$ wahr ist, schauen wir uns $r_a,r_b$ an.\\
+		Um die Voraussetzung zu erfüllen, muss folgendes gelten: $(r_a + r_b) = (r_a - r_b) = 0$\\
+		$\equiv (r_a + r_b) = r_a = r_b$. Und das erfüllt nur die das neutrale Element der Addition der ganzen Zahlen, die $0$.\\
+		Somit gilt $(r_a + r_b) = r_a = r_b = 0$.\\
+		$\Rightarrow 3|a = 3|(3\times m_a + 0), 3|b = 3|(3\times m_b + 0)$ ist wahr und die Kontraposition und die zugrundeliegende Aussage auch.
+		
 	\end{flushleft}
 \end{document}

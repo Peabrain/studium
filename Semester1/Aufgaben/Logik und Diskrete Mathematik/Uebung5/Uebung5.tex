@@ -15,15 +15,38 @@
 	\maketitle
 	\begin{flushleft}
 		\textbf{Aufgabe 1:}\\
+		geg:\\
+		$f:A\rightarrow B$ ist eine Abbildung. $\forall S,T\subseteq A$ gilt $f(S\cap T)=f(S)\cap f(T)$.\\
+		zu zeigen: $f$ ist injektiv.\\[1em]
+		$M_1 = S_1\cap T_1,M_2 = S_2\cap T_2$\\
+		$f$ ist injektiv, wenn $\forall M_1,M_2$ gilt $f(M_1) = f(M_2)\Rightarrow M_1 = M_2$.\\ 
+		$\equiv f(S_1)\cap f(T_1) = f(S_2)\cap f(T_2)\Rightarrow M_1 = M_2$\\[1em]
+		Kontraposition:\\
+		$M_1 \neq M_2 \Rightarrow f(M_1) \neq f(M_2)$\\
+		o.B.d.A:\\
+		$M_1 \neq M_2 \Leftrightarrow \exists x\in M_1: x\nexists M_2$\\
+		$\Rightarrow (x\in S_1 \wedge x\in T_1) \wedge (x\notin S_2 \vee x\notin T_2)$\\
+		Das bedeutet, dass an der Stelle $x$ nur ein $f(x)$ für $f(M_1)$ existiert, aber nicht für $f(M_2)$. Und da es für jedes beliebige $x$ gilt, für das unsere "o.B.d.A" gilt ...\\
+		$\Rightarrow f(M_1)\neq f(M_2)$\\
+		Somit ist die Kontraposition wahr und die Aussage auch. $f$ ist injektiv.
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 2:}\\
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 3:}\\		
+		(a)
+		(b) Ja, weil stetig = es gibt keine Unterbrechungen und bijektiv = zu jedem $f(x)$ wird genau 1 eindeutiges  $x$ zugewiesen und umgedreht genauso.\\
+		(c) Wenn man die Funktion $y = \tan(x), \forall x\in \mathbb{R}$ durch das Intervall auf x = $[-\frac{pi}{2},\frac{pi}{2})$ beschränkt, dann ist $M$ beschränkt, aber $f(M)=\{-\infty,\infty\}$ ist nicht beschränkt.\\
+		(d) Nein. Siehe Beispiel (d).\\  
+		(e) Nein. Siehe Beispiel (c).\\  
+		(f) Ja, da  durch die Injektivität schon gegeben ist, zu jedem $f(x)$ nur ein $x$ geben kann. 
 	\end{flushleft}
 	\begin{flushleft}
-		\textbf{Aufgabe 4:}\\		
+		\textbf{Aufgabe 4:}\\
+		zu zeigen: $B^n, B=\{0,1\}, n\in \mathbb{N}$ ist abzählbar unendlich.\\[1em]
+		$B^1 = B = \{0,1\} mit  |B| = 2^1, B^2 = B\times B = \{0,1\}\times \{0,1\} mit  |B^2| = 2^2$\\ sind abzählbar.\\
+		Also $|B^n| = 2^n$. Und jede Vereinigung abzählbarer Menge ist abzählbar. Und für beliebige $k$'s auch unendlich abzählbar.\\		
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 5:}\\		

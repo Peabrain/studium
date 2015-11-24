@@ -44,9 +44,27 @@
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 4:}\\
+		a)\\
 		zu zeigen: $B^n, B=\{0,1\}, n\in \mathbb{N}$ ist abzählbar unendlich.\\[1em]
 		$B^1 = B = \{0,1\} mit  |B| = 2^1, B^2 = B\times B = \{0,1\}\times \{0,1\} mit  |B^2| = 2^2$\\ sind abzählbar.\\
-		Also $|B^n| = 2^n$. Und jede Vereinigung abzählbarer Menge ist abzählbar. Und für beliebige $k$'s auch unendlich abzählbar.\\		
+		Also $|B^n| = 2^n$. Und jede Vereinigung abzählbarer Menge ist abzählbar. Und für beliebige $k$'s auch unendlich abzählbar.\\ [1em]
+		b)\\
+		Behauptung:  $|B^{\mathbb{N}}| = |\mathbb{P}(\mathbb{N})|$\\
+		Anwendung des Gauss'schen Diagonalisierungsverfahrens:\\ 
+		$B_0 = \underline{0}100101\dots$\\
+		$B_1 = 1\underline{0}01100\dots$\\
+		$B_2 = 11\underline{0}1101\dots$\\
+		$B_3 = 011\underline{0}100\dots$\\
+		$B_4 = 0000\underline{1}11\dots$\\
+		$B_5 = 11000\underline{0}1\dots$\\
+		$B_6 = 011110\underline{1}\dots$\\
+		$\vdots$\\
+		Bildung der Diagonalen: $b = 0000101\dots$. Wir definieren die Funktion $f(b) = \{b_i = \left\{ \begin{array}{rcl}
+		         0 & \mbox{:} & b_i = 1 \\
+		         1 & \mbox{:} & b_i = 0 \\
+                \end{array}\right.  : i\in \mathbb{N}\}$\\
+        $b' = 1111010\dots$ ist verschieden von allen $B_k$'s und somit ist eine neue 0-1-Sequenz generiert worden, die vorher noch nicht abzählbar war.\\
+        Hier haben wir, wie im Beispiel von $\mathbb{R}$, auch die Überabzählbarkeit  von $B^{\mathbb{N}}$gezeigt.\\
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 5:}\\		

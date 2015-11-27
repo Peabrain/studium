@@ -46,7 +46,7 @@ void initialize()
 		// Data beginnt somit nicht am Anfang von <memory>.
 		head->data = head + memoryBlockHeaderSize;
 		head->dataSize = memorySize - memoryBlockHeaderSize;
-		head->memBlockState = not_allocated;
+		head->state = not_allocated;
 		head->nextMemBlock = 0;
 
 		b_initialized = 1;
@@ -94,14 +94,25 @@ void* my_malloc(int byteCount)
 	// VIELEN BYTES
 	//
 
+	do
+	{
+		if(block->state == not_allocated && block->dataSize >= byteCount + memoryBlockHeaderSize) break;
+		block = block->nextMemBlock;
+	}
+	while(block != 0);
+
 	// FALLS ES KEIN PASSENDES ELEMENT GIBT, GEBEN WIR NULL ZURUECK.
+	if(block == 0) return 0;
 
 	// Der Knoten block hat genuegend Speicherplatz
 
 	// UNTERTEILUNG DIESES BLOCKS, SO DASS NICHT UNNOETIG VIEL SPEICHERPLATZ VERBRAUCHT WIRD
 	// UND MARKIERE DIESEN BLOCK
-	//
+	block = splitBlock(block,byteCount);
+	block->state = allocated;
+
 	// RUECKGABE DES ZEIGERS AUF DEN ZU BENUTZENDEN SPEICHERBEREICH
+	return block->data;
 }
 
 // Sofern moeglich teilt die Funktion splitBlock einen Block in 2 Bloecke,
@@ -116,7 +127,19 @@ memoryBlock* splitBlock(memoryBlock* block, int byteCount)
 	// TODO
 	// IMPLEMENTIEREN
 
+	struct _memoryblock * nextMemBlock = 0;
+
 	// BERECHNE DIE GROESSE DES NEUEN UND ALTEN BLOCKS
+	if(byteCount + memoryBlockHeaderSize <= block->dataSize)
+	{
+		nextMemBlock = block->data + byteCount;
+		nextMemBlock->data = nextMemBlock + memoryBlockHeaderSize;
+		nextMemBlock->dataSize = block->dataSize - (byteCount + memoryBlockHeaderSize);
+		nextMemBlock->nextMemBlock = block->nextMemBlock;
+		nextMemBlock->state = not_allocated;
+		block->nextMemBlock = nextMemBlock;
+		block->dataSize = byteCount;
+	}
 
 
 	// FALLS EIN WEITERER SPEICHERBLOCK IN DEN ALTEN PASST,
@@ -126,7 +149,7 @@ memoryBlock* splitBlock(memoryBlock* block, int byteCount)
 
 	// PASSE DIE LAENGE VOM ALTEN BLOCK AN
 
-
+	return block;
 }
 
 
@@ -139,14 +162,36 @@ void my_free(void* p)
 	{
 		return;
 	}
+
 	// TODO
 	// SUCHE NACH DEM BLOCK MIT ZEIGER <p>
+	if(!p) return;
+
+	memoryBlock *last = 0;
+	memoryBlock *block = head;
+	// TODO
+	// SUCHE NACH EINEM GEEIGNETEN FREIEN SPEICHERBLOCK, MIT MEHR ALS <byteCount>
+	// VIELEN BYTES
+	//
+
+	do
+	{
+		if(block->data == p) break;
+		last = block;
+		block = block->nextMemBlock;
+	}
+	while(block != 0);
+
+	if(block == 0) return;
 
 	// FALLS KEINER GEFUNDEN WURDE, GEBE EINE MELDUNG AUS.
 
 	// FREIGEBEN VON DEM ENTSPRECHENDEN SPEICHERBLOCK
 
+	block->state = not_allocated;
+
 	// FREIE SPEICHERBLOECKE MITEINANDER VERSCHMELZEN
+	mergeFreeBlocks();
 }
 
 // Diese Funktion verschmilzt benachbarte, nicht benutzte Speicherbloecke
@@ -158,6 +203,20 @@ void mergeFreeBlocks()
 	// DANN VERSCHMELZE DIESE INDEM DIE DATENLAENGE UND DER NACHFOLGER
 	// VOM AKTUELLEN BLOCK ANGEPASST WERDEN.
 	// IMPLEMENTIEREN
+	memoryBlock *block = head;
+	do
+	{
+		if(block->nextMemBlock != 0 && block->state == not_allocated && block->nextMemBlock->state == not_allocated)
+		{
+			block->dataSize += block->nextMemBlock->dataSize + memoryBlockHeaderSize;
+			block->nextMemBlock = block->nextMemBlock->nextMemBlock;
+		}
+		else
+		{
+			block = block->nextMemBlock;
+		}
+	}
+	while(block != 0);
 }
 
 // Diese Funktion gibt eine Uebersicht ueber die vorhandenen Speicherbloecke aus

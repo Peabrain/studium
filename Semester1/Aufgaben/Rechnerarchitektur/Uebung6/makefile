@@ -1,5 +1,6 @@
-stack: stack.o stack.c
-	gcc -O2 -o $@ $^
+SRC = stack
+FLG = -std=c99 -Wall -pedantic
 
-%.o: %.asm
-	nasm -f elf64 -o $@ $<
+prog: $(SRC).c
+	nasm -f elf64 $(SRC)_.asm
+	gcc $(SRC).c $(SRC)_.o $(FLG)

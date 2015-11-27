@@ -7,25 +7,48 @@
 
 ;====================================
 section .text			; Codesegment
-global _init			; die Funktion 'init' global setzen
-global _push			; die Funktion 'push' global setzen
-global _pop				; die Funktion 'pop' global setzen
-global _top				; die Funktion 'top' global setzen
-global _isEmpty			; die Funktion 'isEmpty' global setzen
+global init			; die Funktion 'init' global setzen
+global push			; die Funktion 'push' global setzen
+global pop				; die Funktion 'pop' global setzen
+global top				; die Funktion 'top' global setzen
+global isEmpty			; die Funktion 'isEmpty' global setzen
 ;====================================
-_init:
+init:
+	mov	rax,0
+	mov	[stackpointer],rax
 	ret
 ;====================================
-_push:
+push:
+	mov	rdx,[stackpointer]
+	mov [stackbuffer+rdx * 8],rdi
+	inc rdx
+	mov	[stackpointer],rdx
 	ret
 ;====================================
-_pop:
+pop:
+	mov	rdx,[stackpointer]
+	dec rdx
+	mov rax,[stackbuffer+rdx * 8]
+	mov	[stackpointer],rdx
 	ret
 ;====================================
-_top:
+top:
+	mov	rdx,[stackpointer]
+	dec rdx
+	mov rax,[stackbuffer+rdx * 8]
 	ret
 ;====================================
-_isEmpty:
+isEmpty:
+	mov	rax,[stackpointer]
+	cmp rax,0
+	jne	zero
+	mov	rax,1
+	ret
+zero:
+	mov	rax,0
 	ret
 ;====================================
+section .bss
+stackpointer:	dq		0
+stackbuffer:	resq	256
 

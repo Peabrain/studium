@@ -44,7 +44,11 @@ void initialize()
 		// memoryBlockHeaderSize zur Verwaltung benoetigt.
 		// Anfangs ist der restliche Speicher verfuegbar und wird dem head als data zugeordnet.
 		// Data beginnt somit nicht am Anfang von <memory>.
-		
+		head->data = head + memoryBlockHeaderSize;
+		head->dataSize = memorySize - memoryBlockHeaderSize;
+		head->memBlockState = not_allocated;
+		head->nextMemBlock = 0;
+
 		b_initialized = 1;
 		// TODO INITIALISIERUNG VON HEAD
 	}
@@ -89,13 +93,13 @@ void* my_malloc(int byteCount)
 	// SUCHE NACH EINEM GEEIGNETEN FREIEN SPEICHERBLOCK, MIT MEHR ALS <byteCount>
 	// VIELEN BYTES
 	//
-	
+
 	// FALLS ES KEIN PASSENDES ELEMENT GIBT, GEBEN WIR NULL ZURUECK.
-	
+
 	// Der Knoten block hat genuegend Speicherplatz
-    
+
 	// UNTERTEILUNG DIESES BLOCKS, SO DASS NICHT UNNOETIG VIEL SPEICHERPLATZ VERBRAUCHT WIRD
-	// UND MARKIERE DIESEN BLOCK 
+	// UND MARKIERE DIESEN BLOCK
 	//
 	// RUECKGABE DES ZEIGERS AUF DEN ZU BENUTZENDEN SPEICHERBEREICH
 }
@@ -108,21 +112,21 @@ memoryBlock* splitBlock(memoryBlock* block, int byteCount)
 {
 	// Hinweis: Es ist sinnvoll, wenn <block> die Laenge byteCount hat und
 	// der Nachfolger von <block> die Restlaenge umfasst.
-	
+
 	// TODO
 	// IMPLEMENTIEREN
-	
+
 	// BERECHNE DIE GROESSE DES NEUEN UND ALTEN BLOCKS
-	
-	
+
+
 	// FALLS EIN WEITERER SPEICHERBLOCK IN DEN ALTEN PASST,
 	// ERZEUGEN WIR EINEN NEUEN BLOCK, AENHLICH ZU HEAD AM ANFANG
-	
+
 	// LEGE DEN NEUEN BLOCK ALS NACHFOLGER VOM ALTEN BLOCK FEST
-	
+
 	// PASSE DIE LAENGE VOM ALTEN BLOCK AN
 
-	
+
 }
 
 
@@ -137,11 +141,11 @@ void my_free(void* p)
 	}
 	// TODO
 	// SUCHE NACH DEM BLOCK MIT ZEIGER <p>
-	
+
 	// FALLS KEINER GEFUNDEN WURDE, GEBE EINE MELDUNG AUS.
-	
+
 	// FREIGEBEN VON DEM ENTSPRECHENDEN SPEICHERBLOCK
-	
+
 	// FREIE SPEICHERBLOECKE MITEINANDER VERSCHMELZEN
 }
 
@@ -149,8 +153,8 @@ void my_free(void* p)
 void mergeFreeBlocks()
 {
 	// TODO
-	// BEGINNE AM ANFANG DER LISTE 
-	// WENN DER AKTUELLE UND DER BENACHBARTE BLOCK FREI SIND, 
+	// BEGINNE AM ANFANG DER LISTE
+	// WENN DER AKTUELLE UND DER BENACHBARTE BLOCK FREI SIND,
 	// DANN VERSCHMELZE DIESE INDEM DIE DATENLAENGE UND DER NACHFOLGER
 	// VOM AKTUELLEN BLOCK ANGEPASST WERDEN.
 	// IMPLEMENTIEREN
@@ -171,7 +175,7 @@ void status()
 	while(block != NULL)
 	{
 
-		printf("%d  %p\t %s \t\t %d\t [%p,%p]\t%p\n", ++count, block, boolStr[block->state], block->dataSize, (block->data), ((char*)block->data + block->dataSize-1), (block->nextMemBlock)); 
+		printf("%d  %p\t %s \t\t %d\t [%p,%p]\t%p\n", ++count, block, boolStr[block->state], block->dataSize, (block->data), ((char*)block->data + block->dataSize-1), (block->nextMemBlock));
 		block = block->nextMemBlock;
 	}
 	printf("\n\n");

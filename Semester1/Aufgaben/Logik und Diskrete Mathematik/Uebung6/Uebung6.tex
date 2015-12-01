@@ -113,6 +113,21 @@
 		\textbf{Aufgabe 5:}\\		
 	\end{flushleft}
 	\begin{flushleft}
-		\textbf{Aufgabe 6:}\\		
+		\textbf{Aufgabe 6:}\\	
+		zu zeigen: $1 + \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{3}} + \dots + \frac{1}{\sqrt{n}}> 2\cdot(\sqrt{n+1} -1)$\\[1em]
+		Induktionsanfang:\\
+		$n=0\Rightarrow 1 > 2\cdot(\sqrt{1} -1) = 0$\\[1em]
+		Induktionsvorraussetzung:\\
+		$1 + \frac{1}{\sqrt{2}} + \frac{1}{\sqrt{3}} + \dots + \frac{1}{\sqrt{n}}= \sum\limits_{k=0}^{n}\frac{1}{\sqrt{k}}> 2\cdot(\sqrt{n+1} -1)$\\[1em]
+		Induktionsschritt:\\
+		$\sum\limits_{k=0}^{n+1}\frac{1}{\sqrt{k}}> 2\cdot(\sqrt{n+2} -1)$\\
+		$\equiv \sum\limits_{k=0}^{n}\frac{1}{\sqrt{k}} + \frac{1}{\sqrt{n+1}}> 2\cdot(\sqrt{n+2} -1)$\\
+		$\equiv \sum\limits_{k=0}^{n}\frac{1}{\sqrt{k}} + \frac{1}{\sqrt{n+1}}> 2\cdot(\sqrt{n+1} -1) + \frac{1}{\sqrt{n+2}} > 2\cdot(\sqrt{n+2} -1)$\\
+		$\equiv 2\cdot(\sqrt{n+1} -1) + \frac{1}{\sqrt{n+1}} > 2\cdot(\sqrt{n+2} -1)$\\
+		$\equiv \frac{1}{\sqrt{n+1}} > 2\cdot(\sqrt{n+2} -1) - 2\cdot(\sqrt{n+1} -1)$\\
+		$\equiv \frac{1}{\sqrt{n+1}} > 2\cdot(\sqrt{n+2}-\sqrt{n+1})$             ; wir wenden an $\rightarrow \cdot (\sqrt{n+2}+\sqrt{n+1})$\\
+		$\equiv \frac{\sqrt{n+2}+\sqrt{n+1}}{\sqrt{n+1}} > 2\cdot(\sqrt{n+2}-\sqrt{n+1})\cdot(\sqrt{n+2}+\sqrt{n+1})$\\ 
+		$\equiv \frac{\sqrt{n+2}}{\sqrt{n+1}}+1 > 2$\\ 
+		Da $\sqrt{n+2}>\sqrt{n+1}\geq 1$ ist auch die Summe $>2$ und die Behauptung bewiesen.\\[1em]
 	\end{flushleft}
 \end{document}

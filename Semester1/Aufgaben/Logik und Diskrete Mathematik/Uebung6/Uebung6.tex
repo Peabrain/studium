@@ -14,16 +14,100 @@
 \begin{document}
 	\maketitle
 	\begin{flushleft}
-		\textbf{Aufgabe 1:}\\
+		\textbf{Aufgabe 1a:}\\
+		geg: sind 6 Computer mit jeweil 0 bis 5 Verbindungen zu jeweils anderen Computer. Die Verbindungen sind bidirektional.\\
+		zu zeigen: Es gibt mindestens 2 Computer mit der gleichen Anzahl von Verbindungen.\\[1em]
+		\textbf{Widerspruchsbeweis:}\\[1em]
+		Nehmen an, dass es keine 2 Computer gibt, die die gleiche Verbindungsanzahl haben und führen das zum Widerspruch.\\[1em]
+		Eine veranschaulichung für eine beispielhafte Verbingung der Computer a bis b untereinander.\\
+		\begin{tabular}{|c|c|c|c|c|c|}
+			a & b & c & d & e & f \\
+			(a,b) & (b,a) & (c,a) & (d,a) & (e,a) &   \\
+			(a,c) & (b,c) & (c,b) & (d,b) &   &   \\
+			(a,d) & (b,d) &       &       &   &   \\
+			(a,e) &       &       &       &   &   \\
+		 \end{tabular}\\[1em]
+		 
+		 Wir versuchen ein extremes Beispiel zu konstruieren, indem wir jedem Computer eine andere Anzahl von Verbindungen geben.\\
+		 \textbf{Fall 1:}\\
+		 Verbindungen der Computer zu anderen:\\
+		 |a| = 4,|b| = 3,|c| = 2,|d| = 1,|e| = [0..4],|f| = 0 $\Rightarrow$ e muss [0..4] Verbindungen haben, weil 5 geht nicht, da ein Computer keine Verbindungen hat und der Computer zu sich selber keine Verbindung aufbauen kann.\\
+		 \textbf{Fall 2:}\\
+		 Verbindungen der Computer zu anderen:\\
+		 |a| = 5,|b| = 4,|c| = 3,|d| = 2,|e| = [1..5],|f| = 1 $\Rightarrow$ e muss[1..5] Verbindungen haben, da es keinen Computer mit 0 Verbindungen gibt und somit jeder mindestens 1 Verbindung haben muss.\\
+		 \textbf{Fall 3:}\\
+		 Alle Computer haben weniger als 4 Verbindungen. $\Rightarrow$ Trivial. Hier muss es mindestens 2 Computer mit der gleichen Anzahl an Verbindungen geben.\\[1em]
+		 Da die Widerspruchsannahme zum Widerspruch geführt wurde, muss die angenommene Aussage wahr sein.\\[1em]
+	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 1b:}\\
+		geg: 
+		seien $n_1,n_2,\cdots,n_t\in\mathbb{N}^+$\\
+		sei $N = n_1+n_2+\cdots+n_t-t+1$ die Anzahl der Süßigkeiten.\\
+		$t$ ist dabei die Anzahl der Stiefel.\\
+		$S_1,S_2,\cdots,S_t$ sind die Stiefel.\\ [1em]
+		zu zeigen:\\
+		mindestens 1 $S_i$ hat mindestens $n_i$ Süßigkeiten.\\
+		\textbf{Widerspruchsbeweis}\\
+		$N = n_1+n_2+\cdots+n_t-t+1 = (n_1-1)+(n_2-1)+\cdots+(n_t-1)+1$\\
+		Um den Widerspruch zu erfüllen, darf in jedem $S_i$ maximal $n_i-1$ Süßigkeiten drin sein. Da aber $N$ $+1$ Süßigkeiten mehr hat, muss 1 $S_i$ eine Süßgkeit mehr bekommen. Somit ist der Widerspruch falsch und die Aussage wahr.\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 2:}\\
+		geg:\\
+		$G = 20\cdot a + 50\cdot b$\\
+		ges:\\
+		Die Menge der $G$'s.\\
+		\textbf{Behauptung:}\\
+		Menge der auszahlbaren Geldbeträge ist: $M_G=\{n\mathbb{N}:10|n,n\geq 20,n \neq 30\}$\\[1em]
+		Induktionsanfang:\\
+		$a=1,b=0, G=20\cdot 1 + 50\cdot 0 \in M_G$\\
+		$a=0,b=1, G=20\cdot 0 + 50\cdot 1 \in M_G$\\
+		$a=1,b=1, G=20\cdot 1 + 50\cdot 1 \in M_G$\\
+		Induktionsvorraussetzung:\\
+		$G = 20\cdot a + 50\cdot b$\\
+		Induktionsschluss:\\
+		Fall 1: $G = 20\cdot (a + 1) + 50\cdot b = (20\cdot a + 50\cdot b) + (20\cdot 1 + 50\cdot 0) \in M_G$\\
+		Fall 2: $G = 20\cdot a + 50\cdot (b + 1) = (20\cdot a + 50\cdot b) + (20\cdot 0 + 50\cdot 1) \in M_G$\\
+		Fall 3: $G = 20\cdot (a + 1) + 50\cdot (b + 1) = (20\cdot a + 50\cdot b) + (20\cdot 1 + 50\cdot 1) \in M_G$\\[1em]
+		Im Allgemeinen gilt also $(20\cdot a + 50\cdot b) + (20\cdot a_n + 50\cdot b_n) \in M_G,$ mit $a_n,b_n\in \mathbb{N}$
+		Damit ist die Behauptung bewiesen.\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
-		\textbf{Aufgabe 3:}\\		
+		\textbf{Aufgabe 3:}\\	
+		zu zeigen: $21|(4^{n+1} + 5^{2\cdot n-1})$\\[1em]
+		Induktionsanfang:\\
+		$n=1\Rightarrow 21|(4^{1+1} + 5^{2\cdot 1-1}) = 21$\\[1em]
+		Induktionvorraussetzung:\\
+		$21|(4^{n+1} + 5^{2\cdot n-1}) =$ I.V.\\[1em]
+		Induktionsschluss:\\
+		$n+1:$ $4^{n+1+1} + 5^{2\cdot(n+1)-1}=$\\
+		$=4^{n+2} + 5^{2\cdot n+1}=$\\
+		$=4\cdot 4^{n+1} + 25\cdot 5^{2\cdot n-1}=$\\
+		$=4\cdot 4^{n+1} + 4\cdot 5^{2\cdot n-1} + 21\cdot 5^{2\cdot n-1}=$\\
+		$=4\cdot (4^{n+1} + 5^{2\cdot n-1}) + 21\cdot 5^{2\cdot n-1}=$\\
+		$4\cdot (4^{n+1} + 5^{2\cdot n-1})=4\cdot$ I.V. (ist durch 21 teilbar) und $21| (21\cdot 5^{2\cdot n-1})$\\
+		q.e.d.\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 4:}\\
+		ges: alle $n$ der $f_n$ aller geraden ($2|f_n$) Fibonaccizahlen.\\
+		Behauptung: Menge der $n$ aller gerade Fibonaccizahlen ist: $M_f= \{n:n=3\cdot i-1,i\in\mathbb{N}\}$\\[1em]
+		Induktionsanfang:\\
+		$i=1, n=3\cdot i-1=2$\\
+		$f_{n-2} = 0 \Rightarrow 2\mid f_0 \Rightarrow n\in M_f$\\
+		$f_{n-1} = 1 \Rightarrow 2\nmid f_1 \Rightarrow n\notin M_f$\\
+		$f_{n} = f_1 + f_0 = 1 \Rightarrow 2\nmid f_2 \Rightarrow n\notin M_f$\\[1em]
+		Induktionsvorraussetzung:\\
+		$n= 3\cdot i-1,i\in\mathbb{N}$\\
+		$f_{n} = f_{n-1} + f_{n-2}$\\[1em]
+		Induktionsschluss:\\
+		o.B.d.A fangen wir bei $i=0, n=2$ an. Das können wir machen, da 2 der kleine Index für eine gerade Fibonaccizahl ist. Für die nachfolgenden dreier Zahlenfolgen gilt dann...\\
+		Fall 1: $f_{n+1} = f_{n} + f_{n-1}\Rightarrow 2\mid f_{n}\wedge 2\nmid f_{n-1}\Rightarrow 2\nmid f_{n+1}$\\
+		Fall 2: $f_{n+2} = f_{n+1} + f_{n}\Rightarrow 2\nmid f_{n+1}\wedge 2\mid f_{n}\Rightarrow 2\nmid f_{n+2}$\\
+		Fall 3: $f_{n+3} = f_{n+2} + f_{n+1}\Rightarrow 2\mid f_{n+2}\wedge 2\mid f_{n+1}\Rightarrow 2\mid f_{n+3}$\\[1em]
+		$n+3=(i+1)\cdot 3-1$\\
+		Somit ist gezeigt, dass jede dritte Fibonaccizahl ab der 2, durch 3 teilbar ist.\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 5:}\\		

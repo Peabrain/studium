@@ -110,7 +110,25 @@
 		Somit ist gezeigt, dass jede dritte Fibonaccizahl ab der 2, durch 3 teilbar ist.\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
-		\textbf{Aufgabe 5:}\\		
+		\textbf{Aufgabe 5:}\\	
+		\begin{tabular}{|c|c|c|c|c|c|}
+			 & Ebene & Kreis 1 & Kreis 2 & Kreis 3 & Kreis 4  \\
+			neue Part.& 1 & 1 & 2 & 4 & 6\\
+			insg. Part & 1 & 2 & 4 & 8 & 14  \\
+		\end{tabular}\\[1em]
+		Durch einen neuen Kreis entstehen neue Partition in den anderen Kreisen und in der Ebene.\\
+		- $n-1$ Partitionen entstehen durch den Schnitt mit allen anderen Kreisen.\\
+		- $n-1-1$ Partitionen entstehen durch den Schnitt mit den Schnitten des voran gegangenen Kreises.\\
+		- $+1$ der Kreis.\\[1em]
+		Anzahl der neuen Partitionen: $p = n + 1 + n - 1 - 1 + 1=2\cdot n - 2 + 1 = 2\cdot (n -1)$\\
+		Anzahl aller Partitionen: $P=1+1+\sum\limits_{2}^{n} 2\cdot (i - 1)$\\
+		Induktionsanfang:\\
+		$n=2, 1+1+\sum\limits_{2}^{2} 2\cdot (2 - 1) = 4 = 2^2-2+2$\\
+		Induktionsvorraussetzung:\\
+		$p_n= 1+1+\sum\limits_{2}^{2} 2\cdot (i - 1), \forall n\in \mathbb{N},n\geq 2$\\
+		Induktionsschluss:\\
+		$p_{n+1}= 1+1+\sum\limits_{2}^{n+1} 2\cdot (i - 1)=1+1+\sum\limits_{2}^{n} 2\cdot (i - 1) + 2\cdot (n + 1 - 1)=n^2-n+2+2\cdot n=n^2+n+2=$\\
+		$= n^2 + 2\cdot n -n + 1 - 2 + 2 = (n+1)^2 - (n+1)+2$\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 6:}\\	

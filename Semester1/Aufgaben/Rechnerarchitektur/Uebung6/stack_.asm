@@ -49,6 +49,6 @@ zero:
 	ret
 ;====================================
 section .bss
-stackpointer:	dq		0
+stackpointer:	resq	1
 stackbuffer:	resq	256
 

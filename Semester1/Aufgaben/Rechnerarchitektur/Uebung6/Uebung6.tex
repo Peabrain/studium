@@ -1,0 +1,50 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{polynom}
+
+\title{Rechnerarchitektur, Übung 6}
+\author{Andreas Timmermann, Mat: 4994606, Shima Shahadifar, Mat: 5018598, Gruppe: 2}
+
+\begin{document}
+	\maketitle
+	\begin{flushleft}
+		\textbf{Aufgabe 1:}\\
+		\textbf{a)}\\
+		$u_5=a_4 b_4 \vee (a_4\oplus b_4) u_3$\\
+		$=a_4 b_4 \vee (a_4\oplus b_4) (a_3 b_3 \vee (a_3\oplus b_3) u_2)$
+		$=a_4 b_4 \vee (a_4\oplus b_4) (a_3 b_3 \vee (a_3\oplus b_3) (a_2 b_2 \vee (a_2\oplus b_2) u_1))$
+		$=a_4 b_4 \vee (a_4\oplus b_4) (a_3 b_3 \vee (a_3\oplus b_3) (a_2 b_2 \vee (a_2\oplus b_2) (a_1 b_1 \vee (a_1\oplus b_1))))$
+		$=a_4 b_4 \vee (a_4\wedge \neg b_4)\vee (\neg a_4\wedge b_4)) (a_3 b_3 \vee ((a_3\wedge\neg b_3)\vee(\neg a_3\wedge b_3)) (a_2 b_2 \vee ((a_2\wedge\neg b_2)\vee(\neg a_2\wedge b_2)) (a_1 b_1 \vee ((a_1\wedge\neg b_1)\vee(\neg a_1\wedge b_1))))$\\[1em]
+		\textbf{b)}\\
+		$q_1=1, p_1=0$\\
+		$q_2=0, p_2=0$\\
+		$q_3=1, p_3=0$\\
+		$q_4=0, p_4=1$\\
+		\textbf{c)}\\
+		$s_1 = 1,s_2 = 0,s_3 = 1,s_4 = 1$\\
+	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 2:}\\
+\textbf{a)}\\
+
+Ein Schaltnetz ist ein Netz aus verschalteten logischen Gattern. (boolischen Funktion). Das Ergebnis, eines Schlatznetzes hängt nur von INPUT, d. h. die Pegel an den Eingangen, ab.
+
+Schaltwerk ist ein Netz aus verschalteten logischen Gattern, dass eine feedback besitzt. Eine feedback ist eine Verschaltung von mindestens einem Ausgang mit den Eingängen. Dadurch hängt die Ausgabe eines Schaltwerkes auch dem Zustand des Schaltwerkes ab.\\[1em]
+
+\textbf{b)}\\
+
+\textbf{1.} Hier ein Schaltwerk verwenden werden muss, da die Berechnung der aktuellen Zeit von der vorherigen abhängt.
+
+\textbf{2.} Hier auch ein Schaltwerk verwenden werden muss, da das mit der zu bezahlenden Summe initialisiert wird und immer den eingeworfenen Betrag abzieht, bis man bei einem Betrag von kleiner gleich Null angekommen ist.
+
+\textbf{3.} Die ALU eines Rechenwerkes berechnet mathematische und logische Operationen, die von ein oder zwei Operanten abhängen.
+
+\textbf{4.} Hier reicht ein Schaltnetz aus, wenn man davon ausgeht, dass die gültigen Netzhaut- muster nicht im Schaltnetz selber gespeichert sind sondern in einem externen Speicher. 
+	\end{flushleft}
+\end{document}

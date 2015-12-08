@@ -15,15 +15,46 @@
 	\maketitle
 	\begin{flushleft}
 		\textbf{Aufgabe 1}\\
+		geg: eine Menge $M$ von $n$ Männern und $n$ Frauen.\\
+		ges: Anzahl $a$ der Möglichkeiten der Zusammenstellungen der Menge $M$, wenn kein Mann neben einem anderen Mann und keine Frau neben einer anderen Frau sein darf.\\[1em]
+		
+		$a = (n\cdot n)\cdot((n-1)\cdot (n-1))\cdot((n-2)\cdot (n-2))\cdot \dots\cdot\cdot((n-(n-1))\cdot (n-(n-1)))\cdot 2$\\
+		$= n^2\cdot(n-1)^2\cdot(n-2)^2\cdot \dots\cdot\cdot(n-(n-1))^2\cdot 2$\\
+		$=(n!)^2\cdot 2$\\
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 2:}\\
+		geg: Die Menge $T_3$ aller dreistelligen Zahlen, die Durch $3$ teilbar sind. Und Die Menge $T_5$ aller dreistelligen Zahlen die durch $5$ teilbar sind.\\
+		ges:\\
+		1) Die Anzahl $m_{3\mid,5\nmid}$ der Elemente der Menge aller dreistelligen Zahlen, die durch $3$ teilbar sind, aber nicht durch $5$.\\
+		2) Die Anzahl $m_{3\mid,5\mid}$ der Elemente der Menge aller dreistelligen Zahlen, die durch $3$ teilbar sind oder durch $5$.\\[1em]
+		Hilfsmenge: $M_{15}$ alle Zahlen die sowohl durch $3$ als auch durch $5$ teilbar sind.\\
+		$|M_3|=299, |M_5| = 180, |M_{15} = 59$\\
+		$m_{3\mid,5\nmid}=|M_3|-|M_{15} = 299-59=240$\\
+		$m_{3\mid,5\mid}=|M_3|+|M_5|-|M_{15}=420$\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 3:}\\	
+		geg: Eine Menge $M=\{0,1,2,3,4,a,b,c,d,e\}$ aus den Ziffern $1\dots4$ und den Buchstaben $a\dots e$.\\[1em]
+		1.) Anzahl der Möglichkeiten $n= 10^8$\\
+		2.) Anzahl der Möglichkeiten $n= \binom{10}{8}=\frac{10!}{(10-8)!\cdot 8!}=\frac{90}{2}=45$\\
+		3.) Menge $M=\{3,3,3,a,a,a,c,c\}$. Anzahl der Möglichkeiten $n= 3!\cdot 3!\cdot 2!= 162$\\
+		4.) Bei $8$ möglichen Felder gibt es für die 2 $'c'$ eine Verteilung von $7!$, für die Buchstaben bei $6$ verbleibenden Felder eine Verteilung von $5!\cdot 4^2$ und für die Ziffern die Möglichkeiten von $1\cdot 5^4$ Verteilung\\
+		Macht eine Gesamtanzahl der Möglichkeiten von $m=7!\cdot 5!\cdot 4^2\cdot 1\cdot 5^4=3780000$.\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 4:}\\
+		geg: $\binom{2\cdot n}{2}=2\cdot\binom{n}{2}+n^2$\\[1em]
+		$\binom{2\cdot n}{2}=\frac{(2\cdot n)!}{(2\cdot n-2)!\cdot 2}$\\
+		$=\frac{(2\cdot n)\cdot (2\cdot n-1)}{2}$\\
+		$=\frac{4\cdot n^2 - 2\cdot n}{2}$\\
+		$=2\cdot n^2 - n$\\
+		$=n^2 + n^2 - n$\\
+		$=n^2 + n\cdot(n-1)$\\
+		$=n^2+\frac{n\cdot(n-1)\cdot (n-2)!}{(n-2)!}$\\
+		$=n^2+\frac{n\cdot(n-1)\cdot (n-2)!\cdot 2}{(n-2)!\cdot 2}$\\
+		$=n^2+2\cdot\frac{n\cdot(n-1)\cdot (n-2)!}{(n-2)!\cdot 2}$\\
+		$=n^2+2\cdot\binom{n}{2}$\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 5:}\\	

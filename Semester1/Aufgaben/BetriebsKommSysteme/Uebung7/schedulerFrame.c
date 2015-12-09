@@ -99,23 +99,23 @@ int main(void)
 
 
 	//Aufruf der Methoden
-	printf("\n Ablauf von First Come First Serve \n");
+/*	printf("\n Ablauf von First Come First Serve \n");
 	printScheduleHead();
 	schedule(head,processes,&fcfs);
 	printStats();
+/**/
 
-
-	printf("\n Ablauf von RoundRobin \n");
+	printf("\n Ablauf von Highest Response Ratio Next \n");
 	printScheduleHead();
-	schedule(head,processes,&roundRobin);
+	schedule(head,processes,&hrrn);
 	printStats();
+/**/
 
-
-	printf("\n Ablauf von Shortest Process Next\n");
+/*	printf("\n Ablauf von Shortest Remaining Time Next\n");
 	printScheduleHead();
-	schedule(head,processes,&spn);
+	schedule(head,processes,&srt);
 	printStats();
-
+/**/
 	return 0;
 }
 
@@ -227,6 +227,28 @@ LINK hrrn(LINK head,LINK current,int tStep)
 		oder eben noch nicht.
 	*/
 
+	if(current != head)
+	{
+		if(!current->sTime)
+		{
+			deleteProcess(current);
+			if(head->next == head) return current;
+			LINK n = head->next;
+			current = n;
+			float f = (float)(n->nextStep - tStep + n->sTime) / (float)(n->sTime);
+			while(n != head)
+			{
+				float g = (float)(n->nextStep - tStep + n->sTime) / (float)(n->sTime);
+				if(g > f)
+				{
+					f = g;
+					current = n;
+				}
+				n = n->next;
+			}
+		}
+	}
+
 	return current;
 }
 
@@ -239,11 +261,22 @@ tStep:aktueller Zeitschritt
 */
 LINK fcfs(LINK head,LINK current,int tStep)
 {
+	LINK n;
 	updateProcess(current,tStep); 
 
 	/*TODO: Implementieren Sie den First Come First Serve Algorithmus
 		Beachten Sie den Rueckgabewert der deleteProcess Methode
 	*/
+
+	if(current != head)
+	{
+		if(!current->sTime)
+		{
+			n = current->next;
+			deleteProcess(current);
+			current = n;
+		}
+	}
 
 	return current;
 }
@@ -263,6 +296,27 @@ LINK srt(LINK head,LINK current,int tStep)
 		zum Finden des naechsen Prozesses.
 	*/
 
+	if(current != head)
+	{
+		if(!current->sTime)
+			deleteProcess(current);
+			
+		if(head->next == head) return head;
+		LINK n = head->next;
+		current = n;
+		int t1 = 1000000;
+		while(n != head)
+		{
+			int t2 = n->sTime;
+			if(n->nextStep > tStep)
+				t2 += n->nextStep;
+			else
+				t2 += tStep;
+			if(t2 < t1)
+				current = n;
+			n = n->next;
+		}
+	}
 
 	return current;
 }

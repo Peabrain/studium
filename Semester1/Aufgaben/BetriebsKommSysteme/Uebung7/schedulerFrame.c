@@ -99,7 +99,7 @@ int main(void)
 
 
 	//Aufruf der Methoden
-/*	printf("\n Ablauf von First Come First Serve \n");
+	printf("\n Ablauf von First Come First Serve \n");
 	printScheduleHead();
 	schedule(head,processes,&fcfs);
 	printStats();
@@ -111,7 +111,7 @@ int main(void)
 	printStats();
 /**/
 
-/*	printf("\n Ablauf von Shortest Remaining Time Next\n");
+	printf("\n Ablauf von Shortest Remaining Time Next\n");
 	printScheduleHead();
 	schedule(head,processes,&srt);
 	printStats();

@@ -32,6 +32,21 @@
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 2:}\\
+		geg: $f:A\rightarrow B$ und $g: \mathbb{P}(A)\rightarrow \mathbb{P}(A)$. Und für $N\subseteq B$ gilt $g(N) = f^{-1}(N)$.\\
+		zu zeigen: Sei $f$ surjektiv $\Leftrightarrow$ $g$ injektiv.\\[1em]
+		$"\Leftarrow"$:\\
+		Wir beweisen hier durch die Kontraposition:\\
+		$f$ nicht surjektiv $\Rightarrow$ $g$ nicht injektiv.\\
+		Wenn $f$ nicht surjektiv $\Rightarrow$ $\exists y\in B: y \nexists f(A)$.\\
+		Dann ist aber $g(B) = g(B\backslash\{x\})=A \wedge B\neq B\backslash \{x\}$\\
+		Und das bedeutet, dass $g$ nicht injektiv sein kann.\\[1em]
+		$"\Rightarrow"$:\\
+		wieder Beweis durch Kontraposition.\\
+		$g$ nicht injektiv $\Rightarrow$ $f$ nicht surjektiv.\\
+		Wenn $g$ nicht surjektiv ist $\Rightarrow$ $\exists N_1,N_2 \subseteq B$ mit $N_1\neq N2 \wedge g(N_1)=g(N_2)$\\
+		Nach der Definition von $g$ gilt dann auch $f^{-1}(N_1)=f^{-1}(N_2)$.\\
+		Da $N_1\neq N_2$, nehmen wir an (o.D.b.A), $\exists x_2\in N_2\backslash N_1$.\\
+		Dann gilt aber $x_2\neq f(A)$, weil wenn $x_2$ ein nichtleeres Urbild mit einem $a_2$ hätte, dann wäre auch $a_2$ im Urbild eines $x_1\in N_1$. Da aber $f(a)$ nur aus einem Element besteht, kann $f$ nicht surjektiv sein.\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 3:}\\		
@@ -50,7 +65,7 @@
 		Also $|B^n| = 2^n$. Und jede Vereinigung abzählbarer Menge ist abzählbar. Und für beliebige $k$'s auch unendlich abzählbar.\\ [1em]
 		b)\\
 		Behauptung:  $|B^{\mathbb{N}}| = |\mathbb{P}(\mathbb{N})|$\\
-		Anwendung des Gauss'schen Diagonalisierungsverfahrens:\\ 
+		Anwendung des Cantor Diagonalisierungsverfahrens:\\ 
 		$B_0 = \underline{0}100101\dots$\\
 		$B_1 = 1\underline{0}01100\dots$\\
 		$B_2 = 11\underline{0}1101\dots$\\
@@ -64,7 +79,9 @@
 		         1 & \mbox{:} & b_i = 0 \\
                 \end{array}\right.  : i\in \mathbb{N}\}$\\
         $b' = 1111010\dots$ ist verschieden von allen $B_k$'s und somit ist eine neue 0-1-Sequenz generiert worden, die vorher noch nicht abzählbar war.\\
-        Hier haben wir, wie im Beispiel von $\mathbb{R}$, auch die Überabzählbarkeit  von $B^{\mathbb{N}}$gezeigt.\\
+        Hier haben wir, wie im Beispiel von $\mathbb{R}$, auch die Überabzählbarkeit  von $B^{\mathbb{N}}$gezeigt.\\[1em]
+        Andere Möglichkeit wäre die 0-1-Sequenzen durch eine bijektive Funktion in reelle Zahlen umzuwandeln, um dann auch mit dem Cantor Diagonalisierungsverfahren die Überabzählbarkeit nachzuweisen.\\
+        Da die Funktion bijektiv ist, ist die Beweisführung gleich.\\
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 5:}\\		

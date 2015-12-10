@@ -55,10 +55,14 @@
 		$=n^2+\frac{n\cdot(n-1)\cdot (n-2)!\cdot 2}{(n-2)!\cdot 2}$\\
 		$=n^2+2\cdot\frac{n\cdot(n-1)\cdot (n-2)!}{(n-2)!\cdot 2}$\\
 		$=n^2+2\cdot\binom{n}{2}$\\[1em]
+		Bei allen Schokoladen die hier erwähnt werden, handelt es sich um individuelle Schokoladen, wovon keine der anderen gleich.\\
+		Die linke Seite ist klar. Man will wissen wie viele Auswahlmöglichkeiten es bei $n$ weißen und $n$ braunen Schokoladen gibt, wenn man nur 2 auswählen darf. \\[1em]
+		Bei der rechten Seite hingegen werden erstmal alle Auswahlmöglichkeiten für eine Seite (weiße Schokolade) berechnet $\binom{n}{2}$. Diese dann auch für die braune Schokolade, also $2\cdot \binom{n}{2}$. Die $n^2$ die übrig bleiben, sind die Auswahlmöglichkeiten, die entstehen, wenn wir weiße und braune Schokolade bei der Auswahl vermischen. Also jeweils eine weiße und eine braune Schokolade nehmen.\\
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 5:}\\	
 		geg: $\sum\limits_{k=1}^{n}k\cdot \binom{n}{k}^2 = n\cdot \binom{2\cdot n -1}{n-1}$\\
+		Bei allen Schokoladen die hier erwähnt werden, handelt es sich um individuelle Schokoladen, wovon keine der anderen gleich.\\
 		Wir suchen die Anzahl der Auswahlmöglichkeiten aus $n$ weißen und $n$ braunen Tafeln Schokolade. Wobei wir nur $n$ Schokoladen nehmen dürfen und eine weiße Schokolade als Lieblingsschokolade ausgewählt werden muss.\\[1em]
 		Rechte Seite ist klar. Es werden von $2\cdot n$ weißen und braunen Schokoladen eine weiße Schokolade (unsere Lieblingsschokolade) entfernt. So bleiben $2\cdot n - 1$ Schokoladen. Jetzt wollen wir aus diesen Schokoladen $n-1$ ($-1$ weil wir unsere Lieblingsschokolade schon herausgenommen haben) Schokoladen auswählen $\binom{2\cdot n -1}{n-1}$. Jetzt  fehlt noch die Auswahl der weißen Schokolade $n\cdot\binom{2\cdot n -1}{n-1}$.\\[1em]
 		Auf der linken Seite nehmen wir $k$ als Anzahl der weißen Schokoladen die wir nehmen welche von $1$ bis $n$ ist. Somit ergibt sich die Auswahlmöglichkeiten von $\binom{n}{k}$. Diese werden mit den Auswahlmöglichkeiten der braunen Schokolade multipliziert $\binom{n}{k}\cdot\binom{n}{n-k}=\binom{n}{k}^2$. Jetzt müssen wir noch beachten, dass jede der weißen Schokolade auch unsere Lieblingsschokolade sein könnte. Somit ergibt sich $k\cdot\binom{n}{k}^2$. Das aufsummiert ergibt die Gesamtauswahlmöglichkeiten $\sum\limits_{k=1}^{n}k\cdot \binom{n}{k}^2$.

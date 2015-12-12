@@ -6,18 +6,25 @@ section .text
 
 global bubblesort
 
-buublesort:; rdi buffer, rsi elementnum
-	mov	rcx,0
-	mov	eax,[rdi + rcx * 4]
+bubblesort:; rdi buffer, rsi elementnum
+	dec	rsi
+	mov	rcx,rsi
+.loop2:
+	mov	rdx,0
+	mov	rsi,rcx
+	mov	eax,[rdi + rsi * 4]
 .loop1:
-	mov	ebx,[rdi + 4 + rcx * 4]
+	mov	eax,[rdi + rsi * 4]
+	mov	ebx,[rdi - 4 + rsi * 4]
 	cmp eax,ebx
 	jge	.loop
-	mov	ebx,[rdi + rcx * 4]
-	mov	eax,[rdi + 4 + rcx * 4]
+	mov	[rdi + rsi * 4],ebx
+	mov	[rdi - 4 + rsi * 4],eax
 	mov	eax,ebx
+	or	rdx,1
 .loop:
-	inc	rcx
-	cmp	rcx,rsi
+	dec	rsi
 	jne .loop1
+	and	rdx,1
+	jne	.loop2
 	ret

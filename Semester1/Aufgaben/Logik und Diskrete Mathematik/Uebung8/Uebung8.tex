@@ -1,0 +1,43 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{polynom}
+
+\title{Logik und diskrete Mathematik, Übung 7}
+\author{Andreas Timmermann, Mat: 4994606, Alena Dudarenok, Mat: 4999780, Gruppe: 1}
+
+\begin{document}
+	\maketitle
+	\begin{flushleft}
+		\textbf{Aufgabe 1}\\
+		\textbf{a)}\\
+		
+		\textbf{b)}\\
+		zu zeigen: $(1-\sqrt{5})^n + (1+\sqrt{5})^n$ ist ganzzahlig.\\
+		Beweis:\\
+		$(1-\sqrt{5})^n + (1+\sqrt{5})^n = \sum\limits_{k=0}^{n}\binom{n}{k}1^{n-k}\cdot ((-1)\cdot \sqrt{5})^k + \sum\limits_{k=0}^{n}\binom{n}{k}1^{n-k}\cdot (\sqrt{5})^k$\\
+		$= \sum\limits_{k=0}^{n}(\binom{n}{k}1^{n-k}\cdot ((-1)\cdot \sqrt{5})^k + \binom{n}{k}1^{n-k}\cdot (\sqrt{5})^k)$\\
+		$= \sum\limits_{k=0}^{n}\binom{n}{k}(1^{n-k}\cdot ((-1)\cdot \sqrt{5})^k + 1^{n-k}\cdot (\sqrt{5})^k)$\\
+		$= \sum\limits_{k=0}^{n}\binom{n}{k}(1^{n-k}\cdot (((-1)\cdot \sqrt{5})^k + (\sqrt{5})^k))$\\
+		$= \sum\limits_{k=0}^{n}\binom{n}{k}(1^{n-k}\cdot (\sqrt{5})^k \cdot((-1)^k  + 1))$\\
+		$\Rightarrow \forall k $ mit $2|k$ gilt $\binom{n}{k}(1\cdot (5^{\frac{k}{2}} \cdot(1  + 1)))$ ist ganzzahlig und $\forall k $ mit $2\nmid k$ gilt $\binom{n}{k}(1\cdot (\sqrt{5}^k \cdot(-1  + 1))) = 0$ ist auch ganzzahlig.\\
+		$\Rightarrow \sum\limits_{k=0}^{n}\binom{n}{k}(1^{n-k}\cdot (\sqrt{5})^k \cdot((-1)^k  + 1))$\ ist ganzzahlig.\\
+	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 2}\\
+	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 3}\\
+	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 4}\\
+	\end{flushleft}
+	\begin{flushleft}
+		\textbf{Aufgabe 5}\\
+	\end{flushleft}
+\end{document}

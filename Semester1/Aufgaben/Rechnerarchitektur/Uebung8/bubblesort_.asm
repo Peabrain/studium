@@ -25,6 +25,8 @@ bubblesort:; rdi buffer, rsi elementnum
 .loop:
 	dec	rsi
 	jne .loop1
+	dec	rcx
+	add	rdi,4
 	and	rdx,1
 	jne	.loop2
 	ret

@@ -9,7 +9,7 @@
 \usepackage{polynom}
 
 \title{Logik und diskrete Mathematik, Übung 8}
-\author{Andreas Timmermann, Mat: 4994606, Alena Dudarenok, Mat: 4999780, Gruppe: 1}
+\author{Andreas Timmermann, Mat: 4994606, Alena Dudarenok, Mat: 4999780, Gruppe: 3}
 
 \begin{document}
 	\maketitle
@@ -30,14 +30,60 @@
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 2}\\
+		geg: Lucas Zahlen $L_0=2,L_1=1,L_n=L_{n-1}+L_{n-2}, n\ge 2$\\
+		ges: $\sum\limits_{i=0}^{n}L_i^2=L_n\cdot L_{n+1}+2$\\[1em]
+		\textbf{I.A.:} $n=2$, $\sum\limits_{i=0}^{2}L_i^2=2^2+1^2+3^2=14=3\cdot 4+2 = 14$\\ [1em]
+		\textbf{I.V.:} $\sum\limits_{i=0}^{m}L_i^2=L_m\cdot L_{m+1}+2, 2\le m \le n$\\[1em]
+		\textbf{I.S.:} \\
+		$\sum\limits_{i=0}^{n+1}L_i^2 = \sum\limits_{i=0}^{n}L_i^2 + L_{n+1}^2$\\
+		$= L_n\cdot L_{n+1}+2 + L_{n+1}^2 = L_{n+1}\cdot(L_n+L_{n+1}) + 2$\\
+		$= L_{n+1}\cdot L_{n+2} + 2$\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 3}\\
+		\textbf{a)}\\
+		Wir reservieren für jede Frage 4 Punkte. $80-4*10=40$ Punkte bleiben noch zu verteilen.\\
+		Wir haben uns nach dem Script Seite 60 für die Formel für beliebig (N nicht unterscheidbar, R unterscheidbar) entschieden.\\
+		Verteilungsmöglichkeiten bleiben dann $\binom{40+10-1}{10-1} = \frac{49!}{40!\cdot 10!}=2054455634$ Möglichkeiten die Punkte zu verteilen\\[1em]
+		\textbf{b)} \\
+		geg: $x+y+z+w=16, x,y,z,w\in \mathbb{N}$\\
+		Wieder haben wir uns nach dem Script Seite 60 für die Formel für beliebig (N nicht unterscheidbar, R unterscheidbar) entschieden.\\
+		$\binom{n+r-1}{r-1} = \binom{19}{3}=969$\\[1em]		
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 4}\\
+		Poker: $5$ Karten aus $52$ mit $4$ verschiedenen Farben.\\[1em]
+		\textbf{a)}\\
+		geg: $5$ Karten aus $52$\\
+		Lösung:\\
+		\textbf{(1)} als erstes haben wir schonmal $2$ Karten mit der gleichen Farbe auf der Hand. (Schubfachprinzip)\\
+		\textbf{(2)} $\binom{11}{2}$ Möglichkeiten 2 Farben mit der Farbe zu ziehen von der wir schon $2$ Karten haben.\\
+		\textbf{(3)} $\binom{(52-4)-(13-4)}{1} = \binom{39}{1} = 39$ Möglichkeiten eine Karte zu haben, die nicht die Farbe hat, die man braucht.\\
+		\textbf{(4)} $1\cdot\binom{11}{2}\cdot 39 = 2145$ gesamte Möglichkeiten ein Blatt mit 4 Karten gleicher Farbe und eine Karte anderer Farbe zu bekommen.\\[1em]
+
+		\textbf{b)}\\
+		ges: Möglichkeiten ein Fullhouse zu bekommen. 3 Farben der gleichen Werte und 2 Karten einer anderen gleichen Werte.\\[1em]
+		1) $13\cdot\binom{4}{3}$ Möglichkeiten 3 Karten der selben Werte zu bekommen.\\
+		2) $12\cdot\binom{4}{2}$ Möglichkeiten 2 Karten der selben Werte aber anderen Wert als bei 1) zu bekommen.\\
+		3) Insgesamt $13\cdot\binom{4}{3}\cdot 12\cdot\binom{4}{2} = 624$ Möglichkeiten einen Fullhouse zu bekommen.\\[1em]		
+		
+		\textbf{c)}\\
+		$\binom{52}{13}\cdot 4!$ Möglichkeiten Bridgekarten zu bekommen bei 4 unterscheidbaren Spielern.\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 5}\\
+		$30$ Aufträge für $9$ Weihnachtsmänner.\\ 
+		\textbf{a)}\\
+		$9!\cdot\binom{30}{9}$ viele Möglichkeiten $30$ Aufträge an $9$ Weihnachtsmänner zu verteilen.\\
+		$9!\cdot\binom{30 - 9}{9} = 9!\cdot\binom{21}{9}$ viele Möglichkeiten $30$ Aufträge an $9$ Weihnachtsmänner zu verteilen, wenn jeder mindestens $1$ Autrag bearbeiten soll.\\[1em]
+		 
+		\textbf{b)}\\
+		5 Bäume an 5 Plätzen. Und 200 Einheitskugeln\\
+		$\binom{200}{5} = \frac{200!}{195!\cdot 5!} = 2535650040$ Möglichkeiten die 200 Kugeln auf die 5 Bäume zu verteilen.\\
+		$\binom{200 - 5 * 30}{5} = 2118760$ Möglichkeiten die 200 Kugeln auf die 5 Bäume zu verteilen, wenn jeder mindestens 30 Kugeln haben soll.\\
+
+		\textbf{c)}\\
+		$30^9$ Möglichkeiten für 9 Arbeiter aus 30 Getränken zu bestellen.\\
+		
 	\end{flushleft}
 \end{document}

@@ -15,8 +15,49 @@
 	\maketitle
 	\begin{flushleft}
 		\textbf{Aufgabe 1}\\
+		\textbf{a)} \\
+		geg: $50$ unterscheidbare Briefe und $50$ dazugehörige Briefumschläge.\\
+		ges: \\
+		\textbf{(1.)} Die Wahrscheinlichkeit, dass $48$ Briefe im richtigen Umschlag landen.\\ 
+		\textbf{(2.)} Die Wahrscheinlichkeit, dass $49$ Briefe im richtigen Umschlag landen.\\ 
+		\textbf{(3.)} Die Wahrscheinlichkeit, dass $50$ Briefe im richtigen Umschlag landen.\\[1em]
+		
+		\textbf{zu (1.)} $w=\frac{1}{50}\cdot\frac{1}{49}\cdot\cdots\cdot\frac{1}{4}\cdot\frac{1}{3}$\\
+		\textbf{zu (2.)} $w=\frac{1}{50}\cdot\frac{1}{49}\cdot\cdots\cdot\frac{1}{3}\cdot\frac{1}{2}$\\
+		\textbf{zu (2.)} $w=\frac{1}{50}\cdot\frac{1}{49}\cdot\cdots\cdot\frac{1}{2}\cdot\frac{1}{1}$\\[1em]
+
+		\textbf{b)} \\
+		geg: $5$ Bit String und ...\\
+		$A$ ist ein zufälliges Ereignis, dass das $1.$ bit $1$ ist\\
+		$B$ ist das Ereignis, eine gerade Anzahl von $0$ im Bit String zu haben.\\[1em]
+		ges: sind $A$ und $B$ unabhängig.\\
+		$Pr(A)=\frac{1}{2}$, da von $32$ Bitkombinationen, $16$ mit einer $1$ beginnen.\\
+		$B=\{00001,00010,00100,01000,10000,00111,01110,11100,01011,10011,10101,11001,10110,11010\}$\\
+		$|B| = 15, Pr(B)=\frac{15}{32}$\\
+		$A\cap B$ sind alle Bitstrings die eine gerade Anzahl von $0$ haben und mit einer $1$ beginnen.\\
+		$A\cap B=\{10000,11100,10011,10101,11001,10110,11010\}$\\
+		$|A\cap B|=7, Pr(A\cap B)=\frac{7}{32}$\\[1em]
+		$Pr(A)\cdot Pr(B)=\frac{1}{2}\cdot \frac{15}{32}=\frac{15}{64}, Pr(A\cap B) = \frac{7}{32} = \frac{14}{64}$\\
+		$Pr(A)\cdot Pr(B)\neq Pr(A\cap B)$\\[1em]
+		$\Rightarrow$ $A$ und $B$ sind nicht unabhängig.\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 2}\\
+		\textbf{a)}\\
+		geg: Ein fairer Würfel wird 4 mal geworfen und $A$ sei das Ereignis, dass mindestens $1$ mal eine $1$ gewürfelt wird.\\
+		ges: Die Wahrscheinlichkeit, dass $A$ eintritt unter der Voraussetzung, dass das Ereignis $B$ eintritt. Ereignis $B$ ist beim ersten Wurf eine $6$ zu werfen.\\
+		Sind $A$ und $B$ voneinander unabhängig?\\[1em]
+		$Pr(A)=\frac{1}{6}\cdot 4=\frac{2}{3}$\\
+		$Pr(B)=\frac{1}{6}$\\
+		$A\cap B$ ist das Ereignis, dass der erste Wurf eine $6$ wird und mindestens eine $1$ gewürfelt wird.\\
+		$Pr(A\cap B) = \frac{3}{36}=\frac{1}{12}$\\
+		$\Rightarrow$ Die Wahrscheinlichkeit von $A$ unter $B$ ist $Pr(A|B)=\frac{Pr(A\cap B)}{Pr(B)}=\frac{\frac{1}{12}}{\frac{1}{6}}=\frac{1}{2}$ und weiterhin ist mit $Pr(A)\cdot Pr(B)=\frac{2}{3}\cdot \frac{1}{6}=\frac{2}{18}=\frac{1}{9} \Rightarrow Pr(A\cap B)\neq Pr(A)\cdot Pr(B)$\\
+		auch $A$ und $B$ sind nicht voneinander unabhängig.\\[1em]
+		\textbf{b)}\\
+		ges: Wahrscheinlichkeit von $A$ unter $C$, dass mindestens eine $6$ geworfen wird.\\[1em]
+		$A\cap C$ das Ereignis wo mindestens eine $6$ und eine $1$ gewürfelt werden.\\
+		$Pr(C)=\frac{4}{6} =\frac{2}{3}$\\
+		$Pr(A\cap C)=\frac{2}{3}\cdot\frac{2}{3}=\frac{4}{9}$\\
+		$Pr(A|C)=\frac{Pr(A\cap C)}{Pr(C)}=\frac{\frac{4}{9}}{\frac{2}{3}}=\frac{2}{3}$\\[1em]
 	\end{flushleft}
 \end{document}

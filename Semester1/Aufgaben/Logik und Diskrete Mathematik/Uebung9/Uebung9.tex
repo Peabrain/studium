@@ -24,6 +24,41 @@
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 4}\\
+		\textbf{a)}\\
+		geg: $H_k=1+\frac{1}{2}+\frac{1}{3}+\cdots +\frac{1}{k}, k\ge 1, k$-te harmonische Zahl\\
+		zu zeigen: $n\ge 0, H_{2^n}\le 1+n$\\[1em]
+		\underline{Induktionsanfang:} $n=0, H_{2^0} = H_{1} = 1\le 1 + 0$\\ 
+		\underline{Induktionsvoraussetzung:} $H_{2^i}\le 1+i, 0\le i \le n$\\
+		\underline{Induktionsschritt:} $H_{2^{n+1}}= \underbrace{1+\frac{1}{2}+\frac{1}{3}+\cdots +\frac{1}{2^n}}_{Induktionsvoraussetzung}+\frac{1}{2^n+1}+\cdots +\frac{1}{2^{n+1}}$\\
+		$\le 1+n+\underbrace{\frac{1}{2^n+1}+\cdots +\frac{1}{2^{n+1}}}_{2^n-viele}$\\
+		$\le 1+n+2^n\cdot \frac{1}{2^n+1} = 1+n+\frac{2^n}{2^n+1}$\\
+		$\le 1+(n+1)$\\
+		\begin{center}
+		\textbf{q.e.d.}\\
+		\end{center}
+		\textbf{b)}\\
+		zu zeigen: $1+\frac{1}{2^2}+\frac{1}{3^2}+\cdots +\frac{1}{n^2} < 2-\frac{1}{n}, n>1$\\
+		\underline{Induktionsanfang:} $1+\frac{1}{2^2} = 1.25 < 2 - \frac{1}{2} = 1.5$\\
+		\underline{Induktionsvoraussetzung:} $1+\frac{1}{2^2}+\frac{1}{3^2}+\cdots +\frac{1}{2^i} < 2-\frac{1}{i}, 1< i \le n$\\
+		\underline{Induktionsschritt:} $n+1 \Rightarrow \underbrace{1+\frac{1}{4}+\frac{1}{9}+\cdots +\frac{1}{n^2}}_{Induktionsvorraussetzung}+\frac{1}{(n+1)^2}< 2-\frac{1}{n}+\frac{1}{(n+1)^2}$\\[1em]
+		Jetzt zeigen wir noch: $2-\frac{1}{n}+\frac{1}{(n+1)^2} < 2 - \frac{1}{n+1}$\\
+		\begin{center}
+		\begin{tabular}{rcl | l}
+		$2-\frac{1}{n}+\frac{1}{(n+1)^2}$ & $<$ & $2 - \frac{1}{n+1}$ & $-2$\\
+		$-\frac{1}{n}+\frac{1}{(n+1)^2}$ & $<$ & $-\frac{1}{n+1}$ & $+\frac{1}{n}, +\frac{1}{n+1}$\\
+		$\frac{1}{(n+1)^2}+\frac{1}{n+1}$ & $<$ & $\frac{1}{n}$ & $\frac{1}{n+1} \cdot \frac{n+1}{n+1}$\\
+		$\frac{1}{(n+1)^2}+\frac{n+1}{(n+1)^2}$ & $<$ & $\frac{1}{n}$ & \\
+		$\frac{n+2}{(n+1)^2}$ & $<$ & $\frac{1}{n}$ & $\cdot n$\\
+		$\frac{n\cdot(n+2)}{(n+1)^2}$ & $<$ & $1$ & \\
+		$\frac{n^2+2\cdot n}{(n+1)^2}$ & $<$ & $1$ & \\
+		$\frac{n^2+2\cdot n+1-1}{(n+1)^2}$ & $<$ & $1$ & \\
+		$\frac{(n+1)^2-1}{(n+1)^2}$ & $<$ & $1$ & \\
+		$\frac{(n+1)^2-1}{(n+1)^2}$ & $<$ & $1$ & \\
+		$\frac{(n+1)^2}{(n+1)^2}-\frac{1}{(n+1)^2}$ & $<$ & $1$ & \\
+		$1-\frac{1}{(n+1)^2}$ & $<$ & $1$ & \\
+		\end{tabular}\\[1em]
+		\textbf{q.e.d.}\\
+		\end{center}
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 5}\\

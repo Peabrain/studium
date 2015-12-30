@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{polynom}
+\usepackage{stmaryrd}
 
 \title{Logik und diskrete Mathematik, Übung 9}
 \author{Andreas Timmermann, Mat: 4994606, Alena Dudarenok, Mat: 4999780, Gruppe: 3}
@@ -15,12 +16,36 @@
 	\maketitle
 	\begin{flushleft}
 		\textbf{Aufgabe 1}\\
+		\textbf{a)}\\
+		$x_{n+1} = \neg x_{n} \Leftrightarrow x_{n+1}=\begin{cases} 0, &\text{falls } x_{n} = 1 \\ 1, &\text{falls } x_{n} = 0 \end{cases}$\\[1em]
+		Da immer einer der beiden Terme $x_n$ oder $x_{n+1}$ $true$ sein muss, wähle ich eine alternierende Methode, da auch die Ergebnisse der einzelnen Terme aus alternierenden Termen berechnet werden.\\
+		\textbf{b)}\\
+		(1) $(\neg q\vee r)\wedge \neg(q \vee p)\wedge \neg q = (\neg q\vee r)\wedge \neg q \wedge \neg p = (\neg q \wedge \neg p) \vee (r \wedge \neg q \wedge \neg p) = \neg q \wedge \neg p$\\
+		(2) $[(p\vee q)\wedge(p\Rightarrow r)\wedge(q\Rightarrow r)]\Rightarrow r =$\\
+		$= \neg[(p\vee q)\wedge(\neg p\vee r)\wedge(\neg q\vee r)]\vee r = $\\
+		$= [\neg(p\vee q)\vee \neg(\neg p\vee r)\vee \neg(\neg q\vee r)]\vee r=$\\
+		$= [(\neg p\wedge \neg q)\vee (p\wedge \neg r)\vee (q\wedge \neg r)]\vee r =$\\
+		$= (\neg p\wedge \neg q) \vee r \vee (p \vee q)\wedge \neg r = 1$\\[1em]
+
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 2}\\
+		Beweisen Sie: R ist reflexiv und zirkulär genau dann, wenn R Äquivalenzrelation ist.\\[1em]
+		"$\Rightarrow$"\\
+		zu zeigen ist nur die Symmetrie: $aRb \wedge bRb \Rightarrow bRa$\\[1em]
+		"$\Leftarrow$"\\
+		zu zeigen ist nur die Zirkularität: $aRb \wedge bRc \Rightarrow \underbrace{aRc \Rightarrow cRa}_{Symmetrie}$\\[1em]
+		
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 3}\\
+		\textbf{a)} \\
+		\underline{reflexiv und symmetrisch aber nicht transitiv:}\\
+		Relation: $R =$ Mensch $a$ ist befreundet mit Mensch $b$.\\
+		\textbf{reflexiv:} $aRa$. Jeder Mensch ist befreundet mit sich selbst.\\
+		\textbf{symmetrisch:} $aRb \Rightarrow bRa$. Wenn Mensch $a$ befreundet ist mit Mensch $b$, dann ist auch Mensch $b$ mit Mensch $a$ befreundet.\\
+		\textbf{transitiv:} $aRb \wedge bRc\Rightarrow aRc$ $\mathbb{\lightning}$. Wenn Mensch $a$ mit Mensch $b$ befreundet ist und Mensch $b$ mit Mensch $c$ befreundet ist, muss Mensch $a$ nicht mit Mensch $c$ befreundet sein.\\[1em]
+		\underline{nicht reflexiv aber symmetrisch und transitiv:}\\
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 4}\\

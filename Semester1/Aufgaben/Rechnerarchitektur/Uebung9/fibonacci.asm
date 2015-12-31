@@ -1,32 +1,59 @@
-; Fabien Geeraert und Ailis Oßwald, Tutorium 02 bei Christoph Van Heteren-Frese
+extern	printf
+extern	atoi
+
+global main
+
+section .data
+	int_store:	db "%lu",10, 0
+	str_store:	db "%s",10, 0
 
 section .text
 
-; veröffentlichen der operatoren, des ergebnis und funktionseinsprünge
+main:
+	cmp	rdi,2
+	jne	.end
+	push	rsi
+	mov		rdi,[rsi + 8]
+	call 	atoi
+	mov	rsi,rax
+	mov	rdi,int_store
+	call printf_int
+	pop	rsi
+	mov	rdi,rax
+	call	fibonacci
 
-global bubblesort
+	mov	rsi,rax
+	mov	rdi,int_store
+	call printf_int	
+.end:
+	ret
 
-bubblesort:; rdi buffer, rsi elementnum
-	dec	rsi
-	mov	rcx,rsi
-.loop2:
-	mov	rdx,0
-	mov	rsi,rcx
-	mov	eax,[rdi + rsi * 4]
-.loop1:
-	mov	eax,[rdi + rsi * 4]
-	mov	ebx,[rdi - 4 + rsi * 4]
-	cmp eax,ebx
-	jge	.loop
-	mov	[rdi + rsi * 4],ebx
-	mov	[rdi - 4 + rsi * 4],eax
-	mov	eax,ebx
-	or	rdx,1
-.loop:
-	dec	rsi
-	jne .loop1
-	dec	rcx
-	add	rdi,4
-	and	rdx,1
-	jne	.loop2
+fibonacci:
+	cmp rdi,2
+	je .start1
+	dec	rdi
+	call fibonacci
+	mov	rcx,rax
+	add	rax,rbx
+	mov	rbx,rcx
+	ret
+.start1:
+	mov	rbx,1
+	mov	rax,1
+	ret
+
+printf_int:
+	push rbp		; bisschen was auf den stack retten
+	push rax
+	mov	rax,0		; keine xmm register
+    call printf		; Call C funktion printf
+	pop rax			; wieder sachen aus dem stack holen
+	pop	rbp
+	ret
+
+printf_string:
+	push rbp
+	mov	rax,0
+	call printf
+	pop	rbp
 	ret

@@ -1,4 +1,11 @@
-FLG = -std=c99 -Wall -pedantic
-prog: main.c fibonacci.asm
-	nasm -f elf64 fibonacci.asm
-	gcc main.c fibonacci.o $(FLG)
+PROGNAME	= fibonacci
+ASM		= nasm
+GCC		= gcc
+all:
+	$(ASM) -f elf64 $(PROGNAME).asm
+	$(GCC) $(PROGNAME).o
+
+clean:
+	rm a.out
+	rm $(PROGNAME).o
+

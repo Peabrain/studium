@@ -46,7 +46,21 @@
 		\textbf{symmetrisch:} $aRb \Rightarrow bRa$. Wenn Mensch $a$ befreundet ist mit Mensch $b$, dann ist auch Mensch $b$ mit Mensch $a$ befreundet.\\
 		\textbf{transitiv:} $aRb \wedge bRc\Rightarrow aRc$ $\mathbb{\lightning}$. Wenn Mensch $a$ mit Mensch $b$ befreundet ist und Mensch $b$ mit Mensch $c$ befreundet ist, muss Mensch $a$ nicht mit Mensch $c$ befreundet sein.\\[1em]
 		\underline{nicht reflexiv aber symmetrisch und transitiv:}\\
-	\end{flushleft}
+		Existiert nicht, da alleine schon durch die Symmetrie $aRb \Rightarrow bRa$ und die "Transitivität" $aRb \wedge bRa \Rightarrow aRa$, die Reflexivität garantiert wird.\\[1em]
+		\underline{reflexiv und transitiv aber nicht symmetrisch:}\\
+		Relation: $R=$"$\le$"\\
+		\textbf{reflexiv:} $a\le a$.\\
+		\textbf{symmetrisch:} $a\le b \Rightarrow b\le a$ $\mathbb{\lightning}$.\\
+		\textbf{transitiv:} $a\le b \wedge b\le c\Rightarrow a\le c$.\\[1em]
+
+		\textbf{b)} \\
+		$P(Z)$ ist eine Potenzmenge und $X,Y \subseteq Z$.\\
+		Wann gilt $P(X\setminus Y)=P(X)\setminus P(Y)$?\\
+		(1) wenn $X=\emptyset$ oder $Y=\emptyset$\\
+		(2) wenn $X=Y$\\
+		(3) wenn $X$ und $Y$ disjunkt sind.\\[1em]
+		
+ 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 4}\\
 		\textbf{a)}\\
@@ -87,5 +101,14 @@
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 5}\\
+		\textbf{a)}\\
+		(1) $4\times M, 11$ mögliche Positionen sind frei. $\Rightarrow \binom{11}{4}$ Kompinationsmöglichkeiten.\\
+		(2) $4\times A, 7$ mögliche Positionen sind frei. $\Rightarrow \binom{7}{4}$ Kompinationsmöglichkeiten.\\
+		(3) $2\times I, 3$ mögliche Positionen sind frei. $\Rightarrow \binom{3}{2}$ Kompinationsmöglichkeiten.\\
+		(4) $1\times F, 1$ mögliche Positionen sind frei. $\Rightarrow \binom{1}{1}$ Kompinationsmöglichkeiten.\\[1em]
+		$\binom{11}{4}\cdot \binom{7}{4}\cdot \binom{3}{2}\cdot \binom{1}{1}$ Möglichkeiten die Buchstaben anzuordnen.\\[1em]
+		Allgemein: $\binom{n}{n_1}\cdot \binom{n-n_1}{n_2}\cdot \binom{n-n_1-n_2}{n_3}\cdot \binom{n-n_1-n_2-n_3}{n_4}$\\[1em]
+
+		\textbf{b)} $\binom{5}{2}\cdot \binom{3}{2}\cdot \binom{1}{1}$ Möglichkeiten $MAFIMAMAMIA$ Palindrom darzustellen.\\[1em]
 	\end{flushleft}
 \end{document}

@@ -4,26 +4,31 @@ extern	atoi
 global main
 
 section .data
-	int_store:	db "%lu",10, 0
-	str_store:	db "%s",10, 0
+	fib_in:		db "Fibonacci from %lu is ", 0
+	fib_out:	db "%lu.",10, 0
+	fib_fault:	db "illigal Parameters. [program] [int]",10, 0
 
 section .text
 
 main:
 	cmp	rdi,2
-	jne	.end
+	je	.noend
+	mov	rdi,fib_fault
+	call printf_int
+	jmp	.end
+.noend:
 	push	rsi
 	mov		rdi,[rsi + 8]
 	call 	atoi
 	mov	rsi,rax
-	mov	rdi,int_store
+	mov	rdi,fib_in
 	call printf_int
 	pop	rsi
 	mov	rdi,rax
 	call	fibonacci
 
 	mov	rsi,rax
-	mov	rdi,int_store
+	mov	rdi,fib_out
 	call printf_int	
 .end:
 	ret
@@ -48,12 +53,5 @@ printf_int:
 	mov	rax,0		; keine xmm register
     call printf		; Call C funktion printf
 	pop rax			; wieder sachen aus dem stack holen
-	pop	rbp
-	ret
-
-printf_string:
-	push rbp
-	mov	rax,0
-	call printf
 	pop	rbp
 	ret

@@ -32,14 +32,14 @@
 		$B$ ist das Ereignis, eine gerade Anzahl von $0$ im Bit String zu haben.\\[1em]
 		ges: sind $A$ und $B$ unabhängig.\\
 		$Pr(A)=\frac{1}{2}$, da von $32$ Bitkombinationen, $16$ mit einer $1$ beginnen.\\
-		$B=\{00001,00010,00100,01000,10000,00111,01110,11100,01011,10011,10101,11001,10110,11010\}$\\
-		$|B| = 15, Pr(B)=\frac{15}{32}$\\
+		$B=\{00001,00010,00100,01000,10000,00111,01110,11100,01011,10011,10101,11001,10110,11010,11111\}$\\
+		$|B| = 16, Pr(B)=\frac{16}{32}$\\
 		$A\cap B$ sind alle Bitstrings die eine gerade Anzahl von $0$ haben und mit einer $1$ beginnen.\\
-		$A\cap B=\{10000,11100,10011,10101,11001,10110,11010\}$\\
-		$|A\cap B|=7, Pr(A\cap B)=\frac{7}{32}$\\[1em]
-		$Pr(A)\cdot Pr(B)=\frac{1}{2}\cdot \frac{15}{32}=\frac{15}{64}, Pr(A\cap B) = \frac{7}{32} = \frac{14}{64}$\\
-		$Pr(A)\cdot Pr(B)\neq Pr(A\cap B)$\\[1em]
-		$\Rightarrow$ $A$ und $B$ sind nicht unabhängig.\\[1em]
+		$A\cap B=\{10000,11100,10011,10101,11001,10110,11010,11111\}$\\
+		$|A\cap B|=8, Pr(A\cap B)=\frac{8}{32}$\\[1em]
+		$Pr(A)\cdot Pr(B)=\frac{1}{2}\cdot \frac{16}{32}=\frac{16}{64}, Pr(A\cap B) = \frac{8}{32} = \frac{16}{64}$\\
+		$Pr(A)\cdot Pr(B) = Pr(A\cap B)$\\[1em]
+		$\Rightarrow$ $A$ und $B$ sind unabhängig.\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 2}\\

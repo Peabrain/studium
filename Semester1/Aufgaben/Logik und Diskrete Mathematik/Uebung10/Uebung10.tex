@@ -7,7 +7,6 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{polynom}
-\usepackage{stmaryrd}
 
 \title{Logik und diskrete Mathematik, Übung 10}
 \author{Andreas Timmermann, Mat: 4994606, Alena Dudarenok, Mat: 4999780, Gruppe: 3}
@@ -16,17 +15,92 @@
 	\maketitle
 	\begin{flushleft}
 		\textbf{Aufgabe 1}\\
+
+		\textbf{a)}\\
+		geg: ein Bitstring mit 10 Nullen ($0$) und 12 Einsen ($1$).\\
+		ges: Wieviele Kombinationen $K$ gibt es, wenn hinter jeder $0$ eine $1$ stehen muss?\\[1em]
+		Der Basisstring ist $1101010101010101010101$. Die ersten beiden $1$ werden jeweils zwischen $01$ geschoben. Das garantiert die Ausgangsbedingung. Also \\[1em]
+		$1101010101010101010101$\\
+		$1011010101010101010101$\\
+		$1010110101010101010101$\\
+		$1010101101010101010101$\\
+		$1010101011010101010101$\\
+		$1010101010110101010101$\\
+		$1010101010101101010101$\\
+		$1010101010101011010101$\\
+		$1010101010101010110101$\\
+		$1010101010101010101101$\\
+		$1010101010101010101011$\\[1em]
+		Dann verchiebe ich beidere vorderen Bits um eine $0$ weiter und das Spiel beginnt von vorne.\\[1em]
+		$0111010101010101010101$\\
+		$0110110101010101010101$\\
+		$0110101101010101010101$\\
+		$0110101011010101010101$\\
+		$0110101010110101010101$\\
+		$0110101010101101010101$\\
+		$0110101010101011010101$\\
+		$0110101010101010110101$\\
+		$0110101010101010101101$\\
+		$0110101010101010101011$\\[1em]
+		Und so weiter ... Damit ist die Kombinationsmöglichkeit $K$ bestimmt.\\
+		$K=11+10+9+8+7+6+5+4+3+2+1$\\[1em]
+
+		\textbf{b)}\\
+		geg: $n$ unabhängige Bernoulli Versuche.\\
+		Wir benutzen $b(k,n,p)=\binom{n}{k}\cdot p^k\cdot (1-p)^{n-k}$\\[1em]
+		\textbf{(1.)} Wahrscheinlichkeit $p_a$ für keinen einzigen Misserfolg (ME).\\[1em]
+		$k=n \Rightarrow p_a=\binom{n}{n}\cdot p^n\cdot (1-p)^0=p^n$\\[1em]
+		\textbf{(2.)} Wahrscheinlichkeit $p_b$ für mindestens einen Misserfolg (ME).\\[1em]
+		Da $p_a$ die Wahrscheinlichkeit für alle Erfolge ist, ist $p_b=1-p_a$ die Wahrscheinlichkeit mindestens 1 Misserfolg zu haben.\\[1em]		
+		\textbf{(3.)} Wahrscheinlichkeit $p_c$ für höchstens 2 Misserfolg (ME).\\[1em]
+		$p_c=b(n,n,p)+b(n-1,n,p)+b(n-2,n,p)$\\
+		$= p_a+\binom{n}{n-1}p^{n-1}\cdot (1-p)^{n-(n-1)}+\binom{n}{n-2}p^{n-2}\cdot (1-p)^{n-(n-2)}$\\
+		$=p_a+n\cdot p^{n-1}\cdot (1-p)+\binom{n}{n-1}\cdot p^{n-2}\cdot (1-p)^2$\\
+		\textbf{(4.)} Wahrscheinlichkeit $p_d$ für mindestens 2 Misserfolg (ME).\\[1em]
+		$p_d=1-(p_a+b(n\cdot p^{n-1}\cdot (1-p)))$\\[1em]
+
+		\textbf{c)}\\
+		zu zeigen: $\binom{2\cdot n}{n} + \binom{2\cdot n}{n - 1} = \frac{1}{2}\cdot\binom{2\cdot n + 2}{n + 1}$\\[1em]
+		Als erstes multipliziere ich beide Seiten mit $2$, welches ich am Ende wieder rückgängig mache.\\
+		$2\cdot(\binom{2\cdot n}{n} + \binom{2\cdot n}{n - 1}) = \binom{2\cdot n + 2}{n + 1}$\\[1em]
+		$2\cdot(\binom{2\cdot n}{n} + \binom{2\cdot n}{n - 1})$\\
+		$= 2\cdot\binom{2\cdot n}{n} + 2\cdot\binom{2\cdot n}{n - 1}$\\
+		$= \binom{2\cdot n}{n} + \binom{2\cdot n}{n} + \binom{2\cdot n}{n - 1} + \binom{2\cdot n}{n - 1}$\\
+		$= \binom{2\cdot n}{n} + \binom{2\cdot n}{n - 1} + \binom{2\cdot n}{n} + \binom{2\cdot n}{n - 1}$\\
+		$= \binom{2\cdot n}{n} + \binom{2\cdot n}{n - 1} + \binom{2\cdot n}{n} + \binom{2\cdot n}{n + 1}$\\
+		$= \binom{2\cdot n + 1}{n} + \binom{2\cdot n + 1}{n + 1}$\\
+		$= \binom{2\cdot n + 2}{n + 1}$\\[1em]
+		Und jetzt wird wieder durch 2 dividiert und das ist $= \frac{1}{2}\binom{2\cdot n + 2}{n + 1}$\\[1em]
+
+		\textbf{d)}\\
+		zu zeigen: $Pr(E\cap F) \geq Pr(E)+Pr(F)-1$.\\
+		geg: $0\leq Pr(E),Pr(F),Pr(E\cap F)\leq 1$ und $Pr(E\cap F)=Pr(E)\cdot Pr(F)$\\[1em]
+		Zuerst legen wir alles auf eine Seite, um etwas Übersicht zu bekommen.\\
+		$1 - Pr(E) - Pr(F) + Pr(E)\cdot Pr(F) \geq 0$\\
+		Jetzt noch etwas zusammenfassen und ...\\
+		$1 - 1\cdot(Pr(E) + Pr(F)) + Pr(E)\cdot Pr(F) \geq 0$\\
+		es ist schon eine Struktur erkennbar.\\
+		$1^2 - 1\cdot(Pr(E) + Pr(F)) + Pr(E)\cdot Pr(F) =$\\
+		$= (1-Pr(E))\cdot(1-Pr(F))\geq 0$\\[1em]
+		Und das ist mit der Voraussetzung gegeben und somit ist dir Formel erfüllt.\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 2}\\
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 3}\\
+		geg: $Pr(A)=\frac{3}{5}, Pr(B)=\frac{1}{3}$\\
+		Riehenfolge: $BAABBAABBAABBAABBA....$\\
+		ges: Wahrscheinlichkeit $Pr$, dass $Bob(B)$ also erstes Trifft.\\[1em]
+		$Pr=\frac{1}{3}+(\frac{2}{3})^1\cdot(\frac{2}{5})^2\cdot\frac{1}{3}+(\frac{2}{3})^2\cdot(\frac{2}{5})^2\cdot\frac{1}{3}+(\frac{2}{3})^3\cdot(\frac{2}{5})^4\cdot\frac{1}{3}+(\frac{2}{3})^4\cdot(\frac{2}{5})^4\cdot\frac{1}{3}+\cdots=$\\
+		$=\frac{1}{3}+\sum\limits_{i=0}^{\infty}((\frac{2}{3})^{2\cdot i+1}\cdot(\frac{2}{5})^{2\cdot i+2}\cdot\frac{1}{3} + (\frac{2}{3})^{2\cdot i+2}\cdot(\frac{2}{5})^{2\cdot i+2}\cdot\frac{1}{3})$\\
+		$=\frac{1}{3}+\frac{1}{3}\cdot\sum\limits_{i=0}^{\infty}((\frac{2}{3})^{2\cdot i+1}\cdot(\frac{2}{5})^{2\cdot i+2} + (\frac{2}{3})^{2\cdot i+2}\cdot(\frac{2}{5})^{2\cdot i+2})$\\
+		$=\frac{1}{3}+\frac{1}{3}\cdot\sum\limits_{i=0}^{\infty}(\frac{2}{5})^{2\cdot i+2}\cdot((\frac{2}{3})^{2\cdot i+1} + (\frac{2}{3})^{2\cdot i+2})$\\
+		$=\frac{1}{3}+\frac{1}{3}\cdot\sum\limits_{i=0}^{\infty}(\frac{2}{5})^{2\cdot i+2}\cdot((\frac{2}{3})^{2\cdot i+1} + (\frac{2}{3})\cdot(\frac{2}{3})^{2\cdot i+1})$\\
+		$=\frac{1}{3}+\frac{1}{3}\cdot\sum\limits_{i=0}^{\infty}(\frac{2}{5})^{2\cdot i+2}\cdot(\frac{2}{3})^{2\cdot i+1}\cdot(1 + \frac{2}{3})$\\
+		$=\frac{1}{3}+\frac{1}{3}\cdot\sum\limits_{i=0}^{\infty}(\frac{2}{5})^{2\cdot i+2}\cdot(\frac{2}{3})^{2\cdot i+1}\cdot\frac{5}{3}$\\
+		$=\frac{1}{3}+\frac{5}{9}\cdot\sum\limits_{i=0}^{\infty}(\frac{2}{5})^{2\cdot i+2}\cdot(\frac{2}{3})^{2\cdot i+1}$\\
+		$=\frac{1}{3}+\frac{5}{9}\cdot\sum\limits_{i=0}^{\infty}\frac{2}{5}\cdot(\frac{2}{5})^{2\cdot i+1}\cdot(\frac{2}{3})^{2\cdot i+1}$\\
+		$=\frac{1}{3}+\frac{10}{45}\cdot\sum\limits_{i=0}^{\infty}(\frac{4}{15})^{2\cdot i+1}$\\
  	\end{flushleft}
-	\begin{flushleft}
-		\textbf{Aufgabe 4}\\
-	\end{flushleft}
-	\begin{flushleft}
-		\textbf{Aufgabe 5}\\
-	\end{flushleft}
 \end{document}

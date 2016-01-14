@@ -5,27 +5,27 @@ section .text
 global insertionsort
 
 insertionsort:
-		mov rcx,1
+		dec rsi
+		mov r11,1
 	searchnewplace:
-		mov rbx,rcx
-		mov al,[rdi+rcx]
-	searchpace:
-		cmp rbx,0
-		je through
-		mov bl,[rdi+rbx-1]
-		dec rbx
+		mov r12,r11
+		mov al,[rdi+r11]
+	searchplace:
+		mov bl,[rdi+r12-1]
 		cmp bl,al
-		jg searchplace
+		jl through
+		dec r12
+		jnz searchplace
 	through:
-		mov rax,rcx
+		mov r13,r11
 	swapchars:
-		mov cl,[rdi+rax-1]
-		mov [rdi+rax],cl
-		dec rax
-		cmp rax,rbx
-		jne swapstring
-		mov [rdi+rbx],al
-		inc rcx
-		cmp rcx,rsi
+		mov cl,[rdi+r13-1]
+		mov [rdi+r13],cl
+		dec r13
+		cmp r13,r12
+		jge swapchars
+		mov [rdi+r12],al
+test:	inc r11
+		cmp r11,rsi
 		jne searchnewplace
 		ret

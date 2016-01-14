@@ -149,13 +149,16 @@
 		ges: Wahrscheinlichkeit $Pr$, dass $Bob(B)$ also erstes Trifft.\\[1em]
 		$Pr=\frac{1}{3}+(\frac{2}{3})^1\cdot(\frac{2}{5})^2\cdot\frac{1}{3}+(\frac{2}{3})^2\cdot(\frac{2}{5})^2\cdot\frac{1}{3}+(\frac{2}{3})^3\cdot(\frac{2}{5})^4\cdot\frac{1}{3}+(\frac{2}{3})^4\cdot(\frac{2}{5})^4\cdot\frac{1}{3}+\cdots=$\\
 		$=\frac{1}{3}+\sum\limits_{i=0}^{\infty}((\frac{2}{3})^{2\cdot i+1}\cdot(\frac{2}{5})^{2\cdot i+2}\cdot\frac{1}{3} + (\frac{2}{3})^{2\cdot i+2}\cdot(\frac{2}{5})^{2\cdot i+2}\cdot\frac{1}{3})$\\
-		Nach Ausrechnen der erten Partialsummen + $\frac{1}{3}$...\\
-		$S_0 = 0.\overline{3}$\\
-		$S_1 = 0.36\overline{8}$\\
-		$S_2 = 0.3\overline{925}$\\
-		$S_3 = 0.39512$\\
-		$S_4 = 0.39668$\\
-		... schätze ich den Grenzwert bei 0.4 ab.\\
-		Somit ist $Pr=0.4$.\\
- 	\end{flushleft}
+		$=\frac{1}{3}+\frac{1}{3}\cdot\sum\limits_{i=0}^{\infty}((\frac{2}{3})^{2\cdot i+1}\cdot(\frac{2}{5})^{2\cdot i+2} + (\frac{2}{3})^{2\cdot i+2}\cdot(\frac{2}{5})^{2\cdot i+2})$\\
+		$=\frac{1}{3}+\frac{1}{3}\cdot\sum\limits_{i=0}^{\infty}(\frac{2}{5})^{2\cdot i+2}\cdot((\frac{2}{3})^{2\cdot i+1} + (\frac{2}{3})^{2\cdot i+2})$\\
+		$=\frac{1}{3}+\frac{1}{3}\cdot\sum\limits_{i=0}^{\infty}(\frac{2}{5})^{2\cdot i+2}\cdot((\frac{2}{3})^{2\cdot i+1} + (\frac{2}{3})\cdot(\frac{2}{3})^{2\cdot i+1})$\\
+		$=\frac{1}{3}+\frac{1}{3}\cdot\sum\limits_{i=0}^{\infty}(\frac{2}{5})^{2\cdot i+2}\cdot(\frac{2}{3})^{2\cdot i+1}\cdot(1 + \frac{2}{3})$\\
+		$=\frac{1}{3}+\frac{1}{3}\cdot\sum\limits_{i=0}^{\infty}(\frac{2}{5})^{2\cdot i+2}\cdot(\frac{2}{3})^{2\cdot i+1}\cdot\frac{5}{3}$\\
+		$=\frac{1}{3}+\frac{5}{9}\cdot\sum\limits_{i=0}^{\infty}(\frac{2}{5})^{2\cdot i+2}\cdot(\frac{2}{3})^{2\cdot i+1}$\\
+		$=\frac{1}{3}+\frac{5}{9}\cdot\sum\limits_{i=0}^{\infty}\frac{2}{5}\cdot(\frac{2}{5})^{2\cdot i+1}\cdot(\frac{2}{3})^{2\cdot i+1}$\\
+		$=\frac{1}{3}+\frac{10}{45}\cdot\sum\limits_{i=0}^{\infty}(\frac{4}{15})^{2\cdot i+1}$\\ 
+		$=\frac{1}{3}+\frac{10}{45}\cdot \frac{4}{15}\cdot\sum\limits_{i=0}^{\infty}(\frac{4}{15})^{2\cdot i}$\\ 	
+		$=\frac{1}{3}+\frac{10}{45}\cdot \frac{4}{15}\cdot\frac{1}{1-(\frac{4}{15})^2}$\\ 	
+		$=\frac{83}{209}$\\
+		\end{flushleft}
 \end{document}

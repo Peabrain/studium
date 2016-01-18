@@ -15,17 +15,64 @@
 	\maketitle
 	\begin{flushleft}
 		\textbf{Aufgabe 1}\\
+		geg: $A$ ist die Menge der Äpfel. $|A|=100$. $M$ ist die Menge der madigen Äpfel. $M\subseteq A, |M|=20$.  $F$ ist die Menge der fleckigen Äpfel. $F\subseteq A, |F|=15$. Desweiteren wissen wir, dass $|M\cap F|=10$.\\
+		ges: Anzahl der Äpfel, die weder madig noch fleckig sind.\\[1em]
+		Die gesuchte Menge an Äpfeln nennen wir $B$ und $|B|=|A|-|M|-|F|+|M\cap F| = 100-20-15+10=75$.\\
+		75 Äpfel können verkauft werden.\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 2}\\
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 3}\\
+		geg: $x_n=6\cdot x_{n-1}-11\cdot x_{n-2}+ 6\cdot x_{n-3}$, Anfangsbedingungen: $x_0=2, x_1=5, x_2=15$\\[1em]
+		$x_n=y^n \Rightarrow y^n=6\cdot y^{n-1}-11\cdot y^{n-2}+6\cdot y^{n-3}, |:y^{n-3}$\\
+		$y^3=6\cdot y^2-11\cdot y+6$\\
+		$0 = y^3-6\cdot y^2+11\cdot y-6$\\
+		Erste Nullstelle geraten: $y_1=3$\\
+		$\Rightarrow 0=(y-3)\cdot(y^2-3\cdot y+2)$\\
+		Quadratische Ergänzung: $y_2=1, y_3=2$\\
+		$\Rightarrow 0=(y-3)\cdot(y-1)\cdot(y-2)$\\
+		Nutzen wir die Anfangsbedingungen und formen ....\\
+		$y_n=c_1\cdot y_1^n+c_2\cdot y_2^n+c_3\cdot y_3^n$\\
+		$2=c_1\cdot 3+c_2+c_3\cdot 2$\\
+		$5=c_1\cdot 9+c_2+c_3\cdot 4$\\
+		$15=c_1\cdot 27+c_2+c_3\cdot 8$\\
+		Nach Auflösung durch Gauss ...\\
+		$4=c_1\cdot 6+0+0$\\
+		$-2=0-c_2\cdot 2+0$\\
+		$1=0+0-c_3\cdot 2$\\
+		So ergibt sich $c_1=\frac{2}{3}, c_2=1, c_3=-\frac{1}{2}$ und ...\\
+		$x_n=\frac{2}{3}\cdot 3^n+1-\frac{1}{2}\cdot 2^n$\\
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 4}\\
+		geg: $x_n=2\cdot x_{n-1}+2^n, x_0=2$\\
+		Erste Tests:\\
+		$x_1=6$\\		
+		$x_2=16$\\
+		$x_3=40$\\
+		$x_4=96$\\
+		Als nächsten verwenden wir das Einsetzungsverfahren:\\
+		$x_n=2\cdot x_{n-1}+2^n$\\
+		$x_n=2\cdot (2\cdot x_{n-2}+2^{n-1})+2^n=4\cdot x_{n-2}+2\cdot 2^n$\\
+		$x_n=4\cdot (2\cdot x_{n-3}+2^{n-2})+2\cdot 2^n=8\cdot x_{n-3}+3\cdot 2^n$\\
+		$n_n=8\cdot (2\cdot x_{n-4}+2^{n-3})+3\cdot 2^n=16\cdot x_{n-4}+4\cdot 2^n$\\
+		Nach dem zusammenfassen ...\\
+		$x_n=2^n\cdot x_0+n\cdot 2^n$\\
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 5}\\
+		geg: $x_n=2\cdot x_{n-1}+n+5, x_0=4$\\
+		Erste Tests:\\
+		$x_1=14$\\
+		$x_2=35$\\
+		$x_3=78$\\
+		Als nächsten verwenden wir das Einsetzungsverfahren:\\
+		$x_n=2\cdot x_{n-1}+n+5$\\
+		$x_n=2\cdot(2\cdot x_{n-2}+(n-1)+5)+n+5=4\cdot x_{n-2}+2\cdot(n-1)+n+3\cdot 5$\\
+		$x_n=4\cdot(2\cdot x_{n-3}+(n-2)+5)+2\cdot(n-1)+n+3\cdot 5=8\cdot x_{n-3}+4\cdot(n-2)+2\cdot(n-1)+n+7\cdot 5$\\
+		Nach dem zusammenfassen ...\\
+		$x_n=2^n\cdot x_0+\sum\limits_{i=1}^{n}2^{n-i}\cdot i+(2^n-1)\cdot 5$
 	\end{flushleft}
 \end{document}

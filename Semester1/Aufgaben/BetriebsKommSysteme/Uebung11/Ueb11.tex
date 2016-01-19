@@ -1,0 +1,40 @@
+\documentclass[a4paper]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{polynom}
+
+\usepackage{tikz-timing}
+\usetikztiminglibrary{clockarrows}
+
+\title{Betriebs- und Kommunikationssysteme Übung 11}
+\author{Andreas Timmermann, Mat: 4994606, Nhu Quynh, Mat: ..., Gruppe: 1}
+
+\begin{document}
+	\maketitle
+	\begin{flushleft}
+		\textbf{Aufgabe 1}\\
+		\textbf{a)}\\
+		\textbf{b)}\\
+
+\begin{tikztimingtable}[scale=2,timing/.cd,
+        c/dual arrows,c/arrow tip=latex,
+        c/arrow pos=.7,
+        metachar={v}{[timing/c/no arrows]c[timing/c/dual arrows]},
+        slope=0]
+    \shortstack[l]{Manchester-Codierung:\\(bi-phase)} 
+      &h 0c0h0l 0c CCcvCcvCCc \\
+ \extracode
+   \begin{pgfonlayer}{background}
+       \vertlines[help lines,brown]{}
+       \foreach [count=\x] \b in {1,0,1,1,0,0,1,0} {
+            \node [below,font=\sffamily\bfseries\tiny,inner ysep=2pt] at (\x-.5,0) {\b};
+       }
+   \end{pgfonlayer}
+\end{tikztimingtable}		
+	\end{flushleft}
+\end{document}

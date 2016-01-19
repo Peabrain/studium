@@ -9,7 +9,6 @@
 \usepackage{polynom}
 
 \usepackage{tikz-timing}
-\usetikztiminglibrary{clockarrows}
 
 \title{Betriebs- und Kommunikationssysteme Übung 11}
 \author{Andreas Timmermann, Mat: 4994606, Nhu Quynh, Mat: ..., Gruppe: 1}
@@ -19,22 +18,53 @@
 	\begin{flushleft}
 		\textbf{Aufgabe 1}\\
 		\textbf{a)}\\
+		\underline{Bit} – ist die kleinste Informationseinheit\\
+		\underline{Signal} – ist die Hardwaremäßige Repräsentation einer Folge von Bits\\
+		\underline{Frequenzmodulation} – hier werden die Bits in einem Signal durch Veränderung der Frequenz einer Sinuskurve dargestellt\\
+		\underline{Amplitudenmodulation} – hier werden die Bits in einem Signal durch Veränderung der Amplitude einer Sinuskurve dargestellt\\
+		\underline{Phasenmodulation} - hier werden die Bits in einem Signal durch Veränderung der Phase einer Sinuskurve dargestellt\\
 		\textbf{b)}\\
 
-\begin{tikztimingtable}[scale=2,timing/.cd,
-        c/dual arrows,c/arrow tip=latex,
-        c/arrow pos=.7,
-        metachar={v}{[timing/c/no arrows]c[timing/c/dual arrows]},
-        slope=0]
-    \shortstack[l]{Manchester-Codierung:\\(bi-phase)} 
-      &h 0c0h0l 0c CCcvCcvCCc \\
- \extracode
-   \begin{pgfonlayer}{background}
-       \vertlines[help lines,brown]{}
-       \foreach [count=\x] \b in {1,0,1,1,0,0,1,0} {
-            \node [below,font=\sffamily\bfseries\tiny,inner ysep=2pt] at (\x-.5,0) {\b};
-       }
-   \end{pgfonlayer}
-\end{tikztimingtable}		
+\begin{tikzpicture}
+    %red vertical lines
+    \foreach \x in {0,1,...,15} {
+        \draw[color=red] (\x,0.5) -- +(0,3);  };
+
+    %black lines with arrows
+    \draw[very thick] (0,2.5) -- +(0.5,0) -- +(0.5,-1.0)-- +(1.0,-1.0); %1
+    \draw[very thick] (1,1.5) -- +(0.5,0.0)-- +(0.5,1.0)-- +(1.0,1.0)-- +(1.0,0.0); %0
+    \draw[very thick] (2,1.5) -- +(0.5,0.0)-- +(0.5,1.0)-- +(1.0,1.0); %0
+    \draw[very thick] (3,2.5) -- +(0.5,0) -- +(0.5,-1.0)-- +(1.0,-1.0); %1
+    \draw[very thick] (4,1.5) -- +(0.5,0.0)-- +(0.5,1.0)-- +(1.0,1.0)-- +(1.0,0.0); %0
+    \draw[very thick] (5,1.5) -- +(0.5,0.0)-- +(0.5,1.0)-- +(1.0,1.0)-- +(1.0,0.0); %0
+    \draw[very thick] (6,1.5) -- +(0.5,0.0)-- +(0.5,1.0)-- +(1.0,1.0); %0
+    \draw[very thick] (7,2.5) -- +(0.5,0) -- +(0.5,-1.0)-- +(1.0,-1.0); %1
+    \draw[very thick] (8,1.5) -- +(0.5,0.0)-- +(0.5,1.0)-- +(1.0,1.0); %0
+    \draw[very thick] (9,2.5) -- +(0.5,0) -- +(0.5,-1.0)-- +(1.0,-1.0)-- +(1.0,0.0); %1
+    \draw[very thick] (10,2.5) -- +(0.5,0) -- +(0.5,-1.0)-- +(1.0,-1.0)-- +(1.0,0.0); %1
+    \draw[very thick] (11,2.5) -- +(0.5,0) -- +(0.5,-1.0)-- +(1.0,-1.0)-- +(1.0,0.0); %1
+    \draw[very thick] (12,2.5) -- +(0.5,0) -- +(0.5,-1.0)-- +(1.0,-1.0); %1
+    \draw[very thick] (13,1.5) -- +(0.5,0.0)-- +(0.5,1.0)-- +(1.0,1.0); %0
+    \draw[very thick] (14,2.5) -- +(0.5,0) -- +(0.5,-1.0)-- +(1.0,-1.0); %1
+
+    %numbers
+    \path (0.5,1) node{1};
+    \path (1.5,1) node{0};
+    \path (2.5,1) node{0};
+    \path (3.5,1) node{1};
+    \path (4.5,1) node{0};
+    \path (5.5,1) node{0};
+    \path (6.5,1) node{0};
+    \path (7.5,1) node{1};
+    \path (8.5,1) node{0};
+    \path (9.5,1) node{1};
+    \path (10.5,1) node{1};
+    \path (11.5,1) node{1};
+    \path (12.5,1) node{1};
+    \path (13.5,1) node{0};
+    \path (14.5,1) node{1};
+\end{tikzpicture}
+	Darstellung wie in 9.23 der Vorlesung.\\
+
 	\end{flushleft}
 \end{document}

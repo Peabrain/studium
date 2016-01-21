@@ -79,7 +79,7 @@ myFileinfo loadfile(char *name)
 	inf.mem = 0;
 	inf.len = 0;
 	inf.isCrcFile = 0;
-	FILE *f = fopen(name,"r");
+	FILE *f = fopen(name,"rb");
 	if(f != NULL)
 	{
 		fseek(f, 0L, SEEK_END);

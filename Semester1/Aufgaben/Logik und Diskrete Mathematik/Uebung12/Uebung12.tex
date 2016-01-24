@@ -15,17 +15,39 @@
 	\maketitle
 	\begin{flushleft}
 		\textbf{Aufgabe 1}\\
+		Nein.\\
+		Ein vollständiger Graph mit 12 Knoten hat genau $\binom{12}{2}=66$ Kanten.\\
+		Wenn dieser Graph unterteilt wird in disjunkte Untergraphen, so gehen Kanten zwischen den Knoten verloren.\\
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 2}\\
+		geg: $G_1=(V_1,E_1)$ und $G_2=(V_2,E_2)$ und $G=(V_1\cup V_2,E_1\cup E_2)$.\\
+		Annahme: wenn $G$ ein zusammenhängender Graph ist $\Rightarrow$ $V_1\cap V2\neq \emptyset$.\\[1em]
+		 Widerspruchsbeweis: wenn $G$ ein zusammenhängender Graph ist $\Rightarrow$ $V_1\cap V2=\emptyset$.\\
+		 wenn $G$ ein zusammenhängender Graph ist $\Rightarrow \exists (u,v)\in E_1\cup E_2: u\in V_1 \wedge v\in V_2$\\
+		 $\Rightarrow u\in V_2 \wedge v\in V_1 \Rightarrow V_1\cap V_2\neq \emptyset$. Ein Widerspruch! Also muss die Annahme wahr sein.\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 3}\\
+		$i = \frac{n-1}{q}, l = n-i$\\[1em]
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 4}\\
+		Das liegt daran, dass sich die Senke in diesem Diagramm so darstellt, dass wenn $n$ die totale Senke ist, die $n$-te Spalte mit nur 0 aufgefüllt und die $n$-te Zeile nur mit 1, bis auf die Stelle $n\times n = 0$, gefüllt ist. Es geht auch umgedreht. Je nachdem, wie man das Diagramm aufgebaut hat.
 	\end{flushleft}
 	\begin{flushleft}
 		\textbf{Aufgabe 5}\\
-	\end{flushleft}
+		geg: G ist ein vollständiger Graph mit $n$ Knoten und gerichteten Verbindungen zwischen den einzelnen Knoten in der Art, dass $\exists v_i\in V: \forall v_j\in V ,v_i\neq v_j: \exists$ ein gerichteter Weg zwischen $v_i$ und $v_j\Rightarrow v_i$ ist Champion. Nennen wir ihn T-Graph.\\[1em]
+		I.A: $n=2\Rightarrow v_i\rightarrow v_j:i\neq j:\exists$ ein gerichteter Weg zwischen $v_i$ und $v_j\Rightarrow v_i$ ist Champion.\\
+		I.V: Es gilt $1\leq t \leq n$ mit G ist ein vollständiger Graph mit $t$ Knoten und gerichteten Verbindungen zwischen den einzelnen Knoten in der Art, dass $\exists v_i\in V: \forall v_j\in V ,v_i\neq v_j: \exists$ ein gerichteter Weg zwischen $v_i$ und $v_j\Rightarrow v_i$ ist Champion. Nennen wir ihn T-Graph.\\
+		I.S: $n+1$,\\
+		Wir nehmen einen T- Graphen mit $n+1$ Knoten. \\
+		Von diesem Graphen entfernen wir einen Punkt und erhalten einen T-Graphen mit $n$ Knoten. Das ist unsere Induktionsvoraussetzung. \\
+		Nennen wir den Champion dieses T-Graphen $v_s$.\\
+		Den zusätzlichen Knoten vom T-Graphen mit $n+1$ Knoten nennen wir $v_n$.\\
+		Dieser hat Kanten zu allen Knoten im T-Graphen mit $n$ Knoten.\\[1em]
+		\textbf{Falle 1)} $\exists$ $\overrightarrow{e}\in E: \overrightarrow{e}=(v_i,v_n), i\neq n \Rightarrow \exists$ ein gerichteter Weg von $v_s$ nach $v_n \Rightarrow v_s$ dominiert $v_n \Rightarrow v_s$ ist der neue und alte Champion.\\    
+		\textbf{Falle 2)} $\nexists$ $\overrightarrow{e}\in E: \overrightarrow{e}=(v_i,v_n), i\neq n \Rightarrow v_n$ dominiert alle Knoten des T Graphen mit $n$ Knoten, auch $v_s$, da es auch eine gerichtete Kante von $v_n$ nach $v_s$ geben muss. Somit ist $v_n$ der neue Champion.\\
+		
+ 	\end{flushleft}
 \end{document}
